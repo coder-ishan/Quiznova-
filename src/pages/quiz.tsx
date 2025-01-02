@@ -10,7 +10,6 @@ const Quiz = () => {
     const [reviews, setReviews] = useState<Response>({});
     const [score, setScore] = useState<number | null>(null);
     const [timeLeft, setTimeLeft] = useState<number>(300); // 5 minutes timer
-    
 
     // Fetch questions from the API
     useEffect(() => {
@@ -22,8 +21,7 @@ const Quiz = () => {
 
         fetchQuestions();
     }, []);
-
-    useEffect(() => {
+        useEffect(() => {
     const handleContextMenu = (e: MouseEvent) => e.preventDefault();
     const handleKeyDown = (e: KeyboardEvent) => {
         if (
@@ -137,18 +135,7 @@ const Quiz = () => {
                 Time Left: {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? `0${timeLeft % 60}` : timeLeft % 60}
             </div>
 
-            {!document.fullscreenElement && (
-                <button
-                    className="mb-6 py-2 px-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-300"
-                    onClick={() => {
-                        if (document.documentElement.requestFullscreen) {
-                            document.documentElement.requestFullscreen();
-                        }
-                    }}
-                >
-                    Go Full Screen
-                </button>
-            )}
+           
 
                 <div className="w-full max-w-3xl bg-white shadow-md rounded-lg p-8 overflow-y-auto" style={{ maxHeight: '90vh' }}>
                     {questions.length === 0 ? (
