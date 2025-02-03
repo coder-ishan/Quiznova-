@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Question, Response } from "../types";
-import { allowedNodeEnvironmentFlags } from "process";
 import 'tailwindcss/tailwind.css';
-
+import axios from 'axios';
+import data from './studentInfo'; // Adjust the import path as necessary
 
 const Quiz = () => {
     const [questions, setQuestions] = useState<Question[]>([]);
@@ -21,32 +21,33 @@ const Quiz = () => {
 
         fetchQuestions();
     }, []);
-        useEffect(() => {
-    const handleContextMenu = (e: MouseEvent) => e.preventDefault();
-    const handleKeyDown = (e: KeyboardEvent) => {
-        if (
-            e.key === "F12" ||
-            (e.ctrlKey && e.shiftKey && e.key === "I") ||
-            (e.ctrlKey && e.shiftKey && e.key === "J") ||
-            (e.ctrlKey && e.key === "U")
-        ) {
-            e.preventDefault();
-        }
-    };
 
-    const handleTouchMove = (e: TouchEvent) => e.preventDefault();
+    useEffect(() => {
+        const handleContextMenu = (e: MouseEvent) => e.preventDefault();
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (
+                e.key === "F12" ||
+                (e.ctrlKey && e.shiftKey && e.key === "I") ||
+                (e.ctrlKey && e.shiftKey && e.key === "J") ||
+                (e.ctrlKey && e.key === "U")
+            ) {
+                e.preventDefault();
+            }
+        };
 
-    document.addEventListener("contextmenu", handleContextMenu);
-    document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("touchmove", handleTouchMove, { passive: false });
+        const handleTouchMove = (e: TouchEvent) => e.preventDefault();
 
-    return () => {
-        document.removeEventListener("contextmenu", handleContextMenu);
-        document.removeEventListener("keydown", handleKeyDown);
-        document.removeEventListener("touchmove", handleTouchMove);
-    };
-}, []);
-    
+        document.addEventListener("contextmenu", handleContextMenu);
+        document.addEventListener("keydown", handleKeyDown);
+        document.addEventListener("touchmove", handleTouchMove, { passive: false });
+
+        return () => {
+            document.removeEventListener("contextmenu", handleContextMenu);
+            document.removeEventListener("keydown", handleKeyDown);
+            document.removeEventListener("touchmove", handleTouchMove);
+        };
+    }, []);
+
     // Handle option selection
     const handleOptionSelect = (questionId: number, optionIndex: number) => {
         setResponses((prev) => ({
@@ -78,8 +79,49 @@ const Quiz = () => {
             document.exitFullscreen();
         }
 
+        // Send data to backend
+        sendQuizData();
+
         // Route to thank you page
         window.location.href = "/thankyou";
+    };
+
+    // Send quiz data to backend
+    const sendQuizData = async () => {
+        // Collect answers
+        const answers = questions.map(question => ({
+            questionId: question.id,
+            answer: responses[question.id] || null
+        }));
+
+        // Fetch student info
+        const studentData = data; // Assuming studentInfo is an object
+
+        // Combine data
+        const finalData = {
+            student: studentData,
+            answers: answers
+        };
+
+        // Send data to backend
+        const sendDataToBackend = async () => {
+            try {
+                const response = await fetch('http://localhost:3001/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(finalData)
+                });
+
+                if (!response.ok) throw new Error('Failed to save');
+                console.log('Data saved successfully');
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        sendDataToBackend();
     };
 
     // Timer countdown
@@ -135,78 +177,75 @@ const Quiz = () => {
                 Time Left: {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? `0${timeLeft % 60}` : timeLeft % 60}
             </div>
 
-           
-
-                <div className="w-full max-w-3xl bg-white shadow-md rounded-lg p-8 overflow-y-auto" style={{ maxHeight: '90vh' }}>
-                    {questions.length === 0 ? (
-                        <p className="text-center">Loading questions...</p>
-                    ) : (
-                        questions.map((question) => (
-                            <div key={question.id} className="my-4 box-content">
-                                <h3 className="font-medium mb-2">{question.id}. {question.question}</h3>
-                                {question.options.map((option, index) => (
-                                    <label key={index} className="block mb-2 cursor-pointer items-center" onClick={() => handleOptionSelect(question.id, index)}>
-                                        <input
-                                            type="checkbox"
-                                            className="mr-3 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                                            onChange={() => handleOptionSelect(question.id, index)}
-                                            checked={responses[question.id]?.includes(index) || false}
-                                        />
-                                        <span className="text-gray-700">{option}</span>
-                                    </label>
-                                ))}
-                                <button
-                                    className="mt-2 mb-10 py-1 px-2 bg-red-500 text-white font-medium rounded hover:bg-red-600 transition duration-300 text-sm"
-                                    onClick={() => setResponses((prev) => {
-                                        const newResponses = { ...prev };
-                                        delete newResponses[question.id];
-                                        delete reviews[question.id];
-                                        return newResponses;
-                                    })}
-                                >
-                                    Clear
-                                </button>
-                                <button
-                                    className="mt-2 mb-10 ml-4 py-1 px-2 bg-purple-500 text-white font-medium rounded hover:bg-yellow-600 transition duration-300 text-sm"
-                                    onClick={() => setReviews((prev) => {
-                                        const newReviews = { ...prev };
-                                        if (newReviews[question.id]) {
-                                            delete newReviews[question.id];
-                                        } else {
-                                            newReviews[question.id] = [1];
-                                        }
-                                        return newReviews;
-                                    })}
-                                >
-                                    {reviews[question.id] ? "Unmark Review" : "Mark for Review"}
-                                </button>
-                            </div>
-                        ))
-                    )}
-
-                    <button
-                        className="mt-6 w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
-                        onClick={handleSubmit}
-                    >
-                        Submit
-                    </button>
-                </div>
-                <div className="w-full mt-3" style={{ maxHeight: '90vh' }}>
-                    <div className="flex overflow-x-auto space-x-4 scrollbar-hide">
-                        {questions.map((question) => (
-                            <div
-                                key={question.id}
-                                className={`flex items-center justify-center min-w-[40px] min-h-[40px] rounded-lg border-2 text-cyan-50 ${
-                                      responses[question.id] ? ( reviews[question.id] ?'bg-yellow-300':'bg-green-600')
-                                       : (reviews[question.id] ?'bg-purple-600':'bg-gray-600')
-                                }`}
+            <div className="w-full max-w-3xl bg-white shadow-md rounded-lg p-8 overflow-y-auto" style={{ maxHeight: '90vh' }}>
+                {questions.length === 0 ? (
+                    <p className="text-center">Loading questions...</p>
+                ) : (
+                    questions.map((question) => (
+                        <div key={question.id} className="my-4 box-content">
+                            <h3 className="font-medium mb-2">{question.id}. {question.question}</h3>
+                            {question.options.map((option, index) => (
+                                <label key={index} className="block mb-2 cursor-pointer items-center" onClick={() => handleOptionSelect(question.id, index)}>
+                                    <input
+                                        type="checkbox"
+                                        className="mr-3 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                                        onChange={() => handleOptionSelect(question.id, index)}
+                                        checked={responses[question.id]?.includes(index) || false}
+                                    />
+                                    <span className="text-gray-700">{option}</span>
+                                </label>
+                            ))}
+                            <button
+                                className="mt-2 mb-10 py-1 px-2 bg-red-500 text-white font-medium rounded hover:bg-red-600 transition duration-300 text-sm"
+                                onClick={() => setResponses((prev) => {
+                                    const newResponses = { ...prev };
+                                    delete newResponses[question.id];
+                                    delete reviews[question.id];
+                                    return newResponses;
+                                })}
                             >
-                                {question.id}
-                            </div>
-                        ))}
-                    </div>
+                                Clear
+                            </button>
+                            <button
+                                className="mt-2 mb-10 ml-4 py-1 px-2 bg-purple-500 text-white font-medium rounded hover:bg-yellow-600 transition duration-300 text-sm"
+                                onClick={() => setReviews((prev) => {
+                                    const newReviews = { ...prev };
+                                    if (newReviews[question.id]) {
+                                        delete newReviews[question.id];
+                                    } else {
+                                        newReviews[question.id] = [1];
+                                    }
+                                    return newReviews;
+                                })}
+                            >
+                                {reviews[question.id] ? "Unmark Review" : "Mark for Review"}
+                            </button>
+                        </div>
+                    ))
+                )}
+
+                <button
+                    className="mt-6 w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
+                    onClick={handleSubmit}
+                >
+                    Submit
+                </button>
+            </div>
+            <div className="w-full mt-3" style={{ maxHeight: '90vh' }}>
+                <div className="flex overflow-x-auto space-x-4 scrollbar-hide">
+                    {questions.map((question) => (
+                        <div
+                            key={question.id}
+                            className={`flex items-center justify-center min-w-[40px] min-h-[40px] rounded-lg border-2 text-cyan-50 ${
+                                  responses[question.id] ? ( reviews[question.id] ?'bg-yellow-300':'bg-green-600')
+                                   : (reviews[question.id] ?'bg-purple-600':'bg-gray-600')
+                            }`}
+                        >
+                            {question.id}
+                        </div>
+                    ))}
                 </div>
-                
+            </div>
         </div>
     );
 };
