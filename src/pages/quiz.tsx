@@ -111,10 +111,11 @@ const Quiz = () => {
         const finalData = {
             student: studentData,
             answers: calculatedScore,
+        
         };
 
         try {
-            const response = await fetch('http://localhost:3001/users', {
+            const response = await fetch('https://ariestest-iitroorkee-default-rtdb.firebaseio.com/userdata.json', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
