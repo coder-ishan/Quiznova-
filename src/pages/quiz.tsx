@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 import { Question, Response } from "../types";
 import 'tailwindcss/tailwind.css';
-import axios from 'axios';
-import data from './studentInfo'; // Adjust the import path as necessary
-
+import { useStudent } from './StudentContext';
+import { useRouter } from 'next/router';
 const Quiz = () => {
+    const { studentData } = useStudent();
     const [questions, setQuestions] = useState<Question[]>([]);
     const [responses, setResponses] = useState<Response>({});
     const [reviews, setReviews] = useState<Response>({});
     const [score, setScore] = useState<number | null>(null);
-    const [timeLeft, setTimeLeft] = useState<number>(300); // 5 minutes timer
-
-    // Fetch questions from the API
+    const [timeLeft, setTimeLeft] = useState<number>(300);
+    const [hasStarted, setHasStarted] = useState(false);
+    const router = useRouter();
+    let calculatedScore = 0;
     useEffect(() => {
         const fetchQuestions = async () => {
             const res = await fetch("/api/questions");
@@ -48,7 +49,19 @@ const Quiz = () => {
         };
     }, []);
 
-    // Handle option selection
+    const startQuiz = () => {
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen()
+                .then(() => setHasStarted(true))
+                .catch(err => {
+                    console.error('Fullscreen error:', err);
+                    setHasStarted(false); // Continue anyway
+                });
+        } else {
+            setHasStarted(true);
+        }
+    };
+
     const handleOptionSelect = (questionId: number, optionIndex: number) => {
         setResponses((prev) => ({
             ...prev,
@@ -58,10 +71,9 @@ const Quiz = () => {
         }));
     };
 
-    // Handle quiz submission
-    const handleSubmit = () => {
-        let calculatedScore = 0;
-
+    const handleSubmit = async () => {
+        // let calculatedScore = 0;
+    
         questions.forEach((question) => {
             const userAnswer = responses[question.id] || [];
             if (
@@ -71,101 +83,77 @@ const Quiz = () => {
                 calculatedScore += 1;
             }
         });
-
+    
         setScore(calculatedScore);
-
-        // Exit fullscreen
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        }
-
-        // Send data to backend
-        sendQuizData();
-
-        // Route to thank you page
-        window.location.href = "/thankyou";
+    
+        // First send the quiz data
+        await sendQuizData();
+    
+        // Wait for 2 seconds before exiting fullscreen
+        setTimeout(() => {
+            if (document.fullscreenElement) {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else {
+                    console.error('Fullscreen exit not supported');
+                }
+            }
+        }, 2000);
     };
+    
 
-    // Send quiz data to backend
     const sendQuizData = async () => {
-        // Collect answers
         const answers = questions.map(question => ({
             questionId: question.id,
             answer: responses[question.id] || null
         }));
 
-        // Fetch student info
-        const studentData = data; // Assuming studentInfo is an object
-
-        // Combine data
         const finalData = {
             student: studentData,
-            answers: answers
+            answers: calculatedScore,
         };
 
-        // Send data to backend
-        const sendDataToBackend = async () => {
-            try {
-                const response = await fetch('http://localhost:3001/users', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(finalData)
-                });
+        try {
+            const response = await fetch('http://localhost:3001/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(finalData)
+            });
 
-                if (!response.ok) throw new Error('Failed to save');
-                console.log('Data saved successfully');
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        };
-
-        sendDataToBackend();
+            if (!response.ok) throw new Error('Failed to save');
+            console.log('Data saved successfully');
+        } catch (error) {
+            console.error('Error:', error);
+        }
     };
 
-    // Timer countdown
     useEffect(() => {
-        if (timeLeft > 0) {
+        if (timeLeft > 0 && hasStarted) {
             const timerId = setInterval(() => {
                 setTimeLeft((prev) => prev - 1);
             }, 1000);
             return () => clearInterval(timerId);
-        } else {
+        } else if (timeLeft === 0) {
             handleSubmit();
         }
-    }, [timeLeft]);
+    }, [timeLeft, hasStarted]);
 
-    // Fullscreen on load
-    useEffect(() => {
-        if (document.documentElement.requestFullscreen) {
-            document.documentElement.requestFullscreen();
-        }
-    }, []);
-
-    // Restrict inspect element and escape key
-    useEffect(() => {
-        const handleContextMenu = (e: MouseEvent) => e.preventDefault();
-        const handleKeyDown = (e: KeyboardEvent) => {
-            if (
-                e.key === "F12" ||
-                (e.ctrlKey && e.shiftKey && e.key === "I") ||
-                (e.ctrlKey && e.shiftKey && e.key === "J") ||
-                (e.ctrlKey && e.key === "U") 
-            ) {
-                e.preventDefault();
-            }
-            
-        };
-
-        document.addEventListener("contextmenu", handleContextMenu);
-        document.addEventListener("keydown", handleKeyDown);
-
-        return () => {
-            document.removeEventListener("contextmenu", handleContextMenu);
-            document.removeEventListener("keydown", handleKeyDown);
-        };
-    }, []);
+    if (!hasStarted) {
+        return (
+            <div className="flex flex-col items-center justify-center h-screen p-6">
+                <h2 className="text-2xl mb-4">Quiz Instructions</h2>
+                <p className="mb-6">Please read the instructions before starting the quiz.</p>
+                <button 
+                    onClick={startQuiz}
+                    className="py-3 px-6 bg-blue-600 text-white font-semibold rounded-lg"
+                >
+                    Start Quiz
+                </button>
+            </div>
+        );
+    }
 
     return (
         <div className="p-6 h-screen w-screen flex flex-col items-center justify-center bg-gray-100">
@@ -223,10 +211,12 @@ const Quiz = () => {
                         </div>
                     ))
                 )}
-
                 <button
                     className="mt-6 w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
-                    onClick={handleSubmit}
+                    onClick={() => {
+                        handleSubmit();
+                        router.push("/thankyou");
+                    }}
                 >
                     Submit
                 </button>
@@ -237,8 +227,8 @@ const Quiz = () => {
                         <div
                             key={question.id}
                             className={`flex items-center justify-center min-w-[40px] min-h-[40px] rounded-lg border-2 text-cyan-50 ${
-                                  responses[question.id] ? ( reviews[question.id] ?'bg-yellow-300':'bg-green-600')
-                                   : (reviews[question.id] ?'bg-purple-600':'bg-gray-600')
+                                responses[question.id] ? (reviews[question.id] ? 'bg-yellow-300' : 'bg-green-600')
+                                : (reviews[question.id] ? 'bg-purple-600' : 'bg-gray-600')
                             }`}
                         >
                             {question.id}

@@ -1,12 +1,24 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Abhay",
       "email": "dsd"
     },
     {
-      "id": "4987",
+      "id": "2",
+      "name": "Abhay",
+      "email": "dsd"
+    },
+    {
+      "id": "aa44",
+      "student": {
+        "name": "aasas",
+        "email": "as@gmail.com",
+        "enrollmentId": "sasas",
+        "mobileNumber": "sasasas",
+        "securityCode": "123"
+      },
       "answers": [
         {
           "questionId": 1,
@@ -16,9 +28,7 @@
         },
         {
           "questionId": 2,
-          "answer": [
-            1
-          ]
+          "answer": null
         },
         {
           "questionId": 3,
@@ -27,115 +37,6 @@
         {
           "questionId": 4,
           "answer": null
-        },
-        {
-          "questionId": 5,
-          "answer": null
-        },
-        {
-          "questionId": 6,
-          "answer": null
-        },
-        {
-          "questionId": 7,
-          "answer": null
-        },
-        {
-          "questionId": 8,
-          "answer": null
-        },
-        {
-          "questionId": 9,
-          "answer": null
-        },
-        {
-          "questionId": 10,
-          "answer": null
-        },
-        {
-          "questionId": 11,
-          "answer": null
-        },
-        {
-          "questionId": 12,
-          "answer": null
-        },
-        {
-          "questionId": 13,
-          "answer": null
-        },
-        {
-          "questionId": 14,
-          "answer": null
-        },
-        {
-          "questionId": 15,
-          "answer": null
-        },
-        {
-          "questionId": 16,
-          "answer": null
-        },
-        {
-          "questionId": 17,
-          "answer": null
-        },
-        {
-          "questionId": 18,
-          "answer": null
-        },
-        {
-          "questionId": 19,
-          "answer": null
-        },
-        {
-          "questionId": 20,
-          "answer": null
-        },
-        {
-          "questionId": 21,
-          "answer": null
-        },
-        {
-          "questionId": 22,
-          "answer": [
-            0
-          ]
-        },
-        {
-          "questionId": 23,
-          "answer": [
-            0
-          ]
-        }
-      ]
-    },
-    {
-      "id": "490b",
-      "answers": [
-        {
-          "questionId": 1,
-          "answer": [
-            0
-          ]
-        },
-        {
-          "questionId": 2,
-          "answer": [
-            0
-          ]
-        },
-        {
-          "questionId": 3,
-          "answer": [
-            3
-          ]
-        },
-        {
-          "questionId": 4,
-          "answer": [
-            3
-          ]
         },
         {
           "questionId": 5,
@@ -216,105 +117,42 @@
       ]
     },
     {
-      "id": "2366",
-      "answers": [
-        {
-          "questionId": 1,
-          "answer": [
-            2
-          ]
-        },
-        {
-          "questionId": 2,
-          "answer": [
-            1
-          ]
-        },
-        {
-          "questionId": 3,
-          "answer": null
-        },
-        {
-          "questionId": 4,
-          "answer": null
-        },
-        {
-          "questionId": 5,
-          "answer": null
-        },
-        {
-          "questionId": 6,
-          "answer": null
-        },
-        {
-          "questionId": 7,
-          "answer": null
-        },
-        {
-          "questionId": 8,
-          "answer": null
-        },
-        {
-          "questionId": 9,
-          "answer": null
-        },
-        {
-          "questionId": 10,
-          "answer": null
-        },
-        {
-          "questionId": 11,
-          "answer": null
-        },
-        {
-          "questionId": 12,
-          "answer": null
-        },
-        {
-          "questionId": 13,
-          "answer": null
-        },
-        {
-          "questionId": 14,
-          "answer": null
-        },
-        {
-          "questionId": 15,
-          "answer": null
-        },
-        {
-          "questionId": 16,
-          "answer": null
-        },
-        {
-          "questionId": 17,
-          "answer": null
-        },
-        {
-          "questionId": 18,
-          "answer": null
-        },
-        {
-          "questionId": 19,
-          "answer": null
-        },
-        {
-          "questionId": 20,
-          "answer": null
-        },
-        {
-          "questionId": 21,
-          "answer": null
-        },
-        {
-          "questionId": 22,
-          "answer": null
-        },
-        {
-          "questionId": 23,
-          "answer": null
-        }
-      ]
+      "id": "dbdc",
+      "student": {
+        "name": "asass",
+        "email": "asa@ass",
+        "enrollmentId": "12122",
+        "mobileNumber": "79777977",
+        "securityCode": "123"
+      },
+      "answers": null
+    },
+    {
+      "id": "7c3a",
+      "student": {
+        "name": "sdsd",
+        "email": "sdsds@asas",
+        "enrollmentId": "asasass",
+        "mobileNumber": "asasas",
+        "securityCode": "123"
+      },
+      "answers": 0
+    },
+    {
+      "id": "9e74",
+      "student": {
+        "name": "wad",
+        "email": "adawd@dwdwd",
+        "enrollmentId": "wwwewew",
+        "mobileNumber": "ewewewe",
+        "securityCode": "123"
+      },
+      "answers": 3
+    },
+    {
+      "id": "9059",
+      "student": null,
+      "answers": 0
     }
   ]
 }
