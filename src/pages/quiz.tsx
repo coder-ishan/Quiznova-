@@ -103,19 +103,20 @@ const Quiz = () => {
     
 
     const sendQuizData = async () => {
-        const answers = questions.map(question => ({
-            questionId: question.id,
-            answer: responses[question.id] || null
+        const QAndAnswers = questions.map(question => ({
+            Question: question.question,
+            UserAnswer: responses[question.id] || null,
+            CorrectAns:question.correctAnswers.sort(),
         }));
 
         const finalData = {
             student: studentData,
-            answers: calculatedScore,
-        
+            QsnAndAnswers: QAndAnswers,
+            FinalScore:calculatedScore,
         };
 
         try {
-            const response = await fetch('https://ariestest-iitroorkee-default-rtdb.firebaseio.com/userdata.json', {
+            const response = await fetch('https://aries-test-f33a3-default-rtdb.firebaseio.com/userdataAndResponses.json', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
