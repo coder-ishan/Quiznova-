@@ -45,3 +45,6 @@ export const useStudent = () => {
   }
   return context;
 };
+
+
+export default StudentContext;
