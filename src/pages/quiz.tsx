@@ -10,7 +10,7 @@ const Quiz = () => {
     const [responses, setResponses] = useState<Response>({});
     const [reviews, setReviews] = useState<Response>({});
     const [score, setScore] = useState<number | null>(null);
-    const [timeLeft, setTimeLeft] = useState<number>(300);
+    const [timeLeft, setTimeLeft] = useState<number>(1800);
     const [hasStarted, setHasStarted] = useState(false);
     const router = useRouter();
     let calculatedScore = 0;
@@ -74,10 +74,13 @@ const Quiz = () => {
     };
 
     const handleInputChange = (questionId: number, value: string) => {
-        setResponses((prev) => ({
-            ...prev,
-            [questionId]: [value],
-        }));
+        const numericalValue = parseInt(value, 10);
+        if (!isNaN(numericalValue)) {
+            setResponses((prev) => ({
+                ...prev,
+                [questionId]: [numericalValue],
+            }));
+        }
     };
 
     const handleSubmit = async () => {
@@ -85,9 +88,14 @@ const Quiz = () => {
             const userAnswer = responses[question.id] || [];
             if (question.type !== "numerical") {
                 if (
+                    question.correctAnswers &&
                     JSON.stringify(userAnswer.sort()) ===
                     JSON.stringify(question.correctAnswers.sort())
                 ) {
+                    calculatedScore += 1;
+                }
+            } else {
+                if (userAnswer[0] === question.correctAnswer) {
                     calculatedScore += 1;
                 }
             }
@@ -96,7 +104,7 @@ const Quiz = () => {
         setScore(calculatedScore);
 
         await sendQuizData();
-
+        router.push("/thankyou");
         setTimeout(() => {
             if (document.fullscreenElement) {
                 if (document.exitFullscreen) {
@@ -110,9 +118,10 @@ const Quiz = () => {
 
     const sendQuizData = async () => {
         const QAndAnswers = questions.map(question => ({
+          
             Question: question.question,
             UserAnswer: responses[question.id] || null,
-            CorrectAns: question.type != "numerical" ? question.correctAnswers.sort() : null,
+            CorrectAns: question.type != "numerical" ? question.correctAnswers?.sort() : question.correctAnswer,
         }));
 
         const finalData = {
@@ -143,7 +152,7 @@ const Quiz = () => {
                 setTimeLeft((prev) => prev - 1);
             }, 1000);
             return () => clearInterval(timerId);
-        } else if (timeLeft === 0) {
+        } else if (timeLeft <= 0) {
             handleSubmit();
         }
     }, [timeLeft, hasStarted]);
@@ -195,7 +204,7 @@ const Quiz = () => {
                                     />
                                 </div>
                             ) : (
-                                <h3 className="font-medium mb-2">{question.id}. {question.question}</h3>
+                                <h3 className="font-medium mb-2" style={{ whiteSpace: 'pre-line' }}>{question.id}. {question.question}</h3>
                             )}
                             
                             {question.options && question.options.map((option, index) => (
@@ -242,13 +251,13 @@ const Quiz = () => {
                     className="mt-6 w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
                     onClick={() => {
                         handleSubmit();
-                        router.push("/thankyou");
+                       
                     }}
                 >
                     Submit
                 </button>
             </div>
-            <div className="w-full mt-3" style={{ maxHeight: '90vh' }}>
+            <div className="w-full mt-3" style={{ position: 'relative', maxHeight: '90vh' }}>
                 <div className="flex overflow-x-auto space-x-4 scrollbar-hide">
                     {questions.map((question) => (
                         <div

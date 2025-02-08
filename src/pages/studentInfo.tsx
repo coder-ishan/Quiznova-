@@ -22,9 +22,10 @@ const StudentInfo: React.FC = () => {
             enrollmentId,
             mobileNumber,
             securityCode
+
         };
 
-        if (securityCode !== '123') {
+        if (securityCode !== 'ARIES-ML-2025') {
             setError(true);
             return;
         }
