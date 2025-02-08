@@ -193,8 +193,13 @@
     "id": 25,
     "question": "Whichadadadaddd?",
     "type":"numerical"
-    
-
+},
+{
+    "id": 26,
+    "question": "Identify the object in the image.",
+    "type": "image",
+    "imageLink": "https://example.com/image.jpg",
+    "options": ["Cat", "Dog", "Bird", "Fish"],
+    "correctAnswers": [0]
 }
-
 ]
