@@ -82,16 +82,16 @@ const Quiz = () => {
 
     const handleSubmit = async () => {
         questions.forEach((question) => {
-        const userAnswer = responses[question.id] || [];
-        if (question.type !== "numerical") {
-            if (
-                JSON.stringify(userAnswer.sort()) ===
-                JSON.stringify(question.correctAnswers.sort())
-            ) {
-                calculatedScore += 1;
+            const userAnswer = responses[question.id] || [];
+            if (question.type !== "numerical") {
+                if (
+                    JSON.stringify(userAnswer.sort()) ===
+                    JSON.stringify(question.correctAnswers.sort())
+                ) {
+                    calculatedScore += 1;
+                }
             }
-        }
-    });
+        });
 
         setScore(calculatedScore);
 
@@ -178,7 +178,7 @@ const Quiz = () => {
                     <p className="text-center">Loading questions...</p>
                 ) : (
                     questions.map((question) => (
-                        <div key={question.id} className="my-4 box-content">
+                        <div key={question.id} id={`question-${question.id}`} className="my-4 box-content">
                             {question.type === "image" ? (
                                 <div>
                                     <h3 className="font-medium mb-2">{question.id}. {question.question}</h3>
@@ -244,8 +244,6 @@ const Quiz = () => {
                         handleSubmit();
                         router.push("/thankyou");
                     }}
-                    
-                    
                 >
                     Submit
                 </button>
@@ -258,7 +256,13 @@ const Quiz = () => {
                             className={`flex items-center justify-center min-w-[40px] min-h-[40px] rounded-lg border-2 text-cyan-50 ${
                                   responses[question.id] ? ( reviews[question.id] ?'bg-yellow-300':'bg-green-600')
                                    : (reviews[question.id] ?'bg-purple-600':'bg-gray-600')
-                            }`}
+                            } cursor-pointer`}
+                            onClick={() => {
+                                const questionElement = document.getElementById(`question-${question.id}`);
+                                if (questionElement) {
+                                    questionElement.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
                         >
                             {question.id}
                         </div>
