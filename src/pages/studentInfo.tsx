@@ -25,7 +25,7 @@ const StudentInfo: React.FC = () => {
 
         };
 
-        if (securityCode !== 'ARIES-ML-2025') {
+        if (securityCode !== 'MLQuestions') {
             setError(true);
             return;
         }

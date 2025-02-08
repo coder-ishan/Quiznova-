@@ -1,0 +1,309 @@
+
+[
+    {
+      "id": 1,
+      "question": "Which of the following is NOT a typical characteristic or component of Convolutional Neural Networks (CNNs)?",
+      "type": "multiple choice",
+      "options": [
+        "Spatial locality is preserved by using convolutional filters.",
+        "Fully connected layers are used to reduce the number of learnable parameters.",
+        "Pooling layers help in reducing the spatial dimensions of feature maps.",
+        "Weight sharing is a key mechanism in convolutional layers to reduce model complexity."
+      ],
+      "correctAnswers": [
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Given the following parameters:\nInput feature map size: 64×32\nKernel size: 4×4\nStride: 2\nPadding: 2\nWhat will be the size of the resulting output feature map?",
+      "type": "multiple choice",
+      "options": [
+        "16×32",
+        "17×33",
+        "33×17",
+        "32×16"
+      ],
+      "correctAnswers": [
+        2
+      ]
+    },
+    {
+      "id": 3,
+      "question": "In the context of gradient descent algorithms, which of the following statements correctly distinguishes Batch Gradient Descent (BGD) and Stochastic Gradient Descent (SGD)?",
+      "type": "multiple choice",
+      "options": [
+        "BGD updates model parameters after each training sample, while SGD updates parameters after processing the entire dataset.",
+        "BGD uses the entire dataset to compute gradients and update parameters once per epoch, while SGD updates parameters after each training sample.",
+        "Both BGD and SGD update model parameters only once during training.",
+        "BGD updates model parameters after a small subset of samples, while SGD uses the entire dataset once per epoch."
+      ],
+      "correctAnswers": [
+        1
+      ]
+    },
+    {
+      "id": 4,
+      "question": "What is the core concept behind Principal Component Analysis (PCA)?",
+      "type": "multiple choice",
+      "options": [
+        "Reducing the number of features while retaining most of the variance in the data",
+        "Increasing the dimensionality of the dataset for better model accuracy",
+        "Creating a decision boundary to classify data points into distinct classes",
+        "Clustering data points into groups based on similarity"
+      ],
+      "correctAnswers": [
+        0
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Where and why is Principal Component Analysis (PCA) typically used?",
+      "type": "multiple choice",
+      "options": [
+        "PCA is used to transform the dataset into a lower-dimensional space, making it more complex and improving the performance of linear models.",
+        "PCA is used to reduce the dimensionality of large datasets, retaining the most important features while discarding the less informative ones.",
+        "PCA is used to generate new features based on combinations of existing ones, which may introduce more noise into the dataset.",
+        "PCA is used to eliminate multicollinearity by removing features with high correlation in the dataset, even if they contain important information."
+      ],
+      "correctAnswers": [
+        1
+      ]
+    },
+    {
+      "id": 6,
+      "question": "It is observed that 50% of emails are spam. A spam detection software has an accuracy of 99% for detecting spam, and it incorrectly tags 5% of non-spam emails as spam. If an email is tagged as spam, let the probability that it is not actually a spam emailbe x, then what is x*10000 ?",
+      "type": "numerical",
+      "correctAnswer": 481
+    },
+    {
+      "id": 7,
+      "question": "Which of the following is True?",
+      "type": "multiple choice",
+      "options": [
+        "Bagging is more prone to overfitting compared to boosting.",
+        "Regularization can decrease variance without affecting bias.",
+        "Bagging focuses on reducing variance and boosting focuses on reducing bias.",
+        "PCA preserves global structure while t-SNE focuses on preserving local structures.",
+        "Over-parameterized model always achieves low bias and low variance."
+      ],
+      "correctAnswers": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": 8,
+      "question": "An egg break only if dropped from above a threshold floor, within a 100-story building. Every time you drop an egg, it is counted as an attempt. You are given 2 eggs to deduce the threshold floor, tell the minimum number of attempts in the worst case!",
+      "type": "numerical",
+      
+      "correctAnswer": 14
+    },
+    {
+      "id": 9,
+      "question": "Why were sine and cosine functions chosen for positional encoding over simple incremental values to represent token positions in a sequence in the \"Attention is All You Need\" research paper?",
+      "type": "multiple choice",
+      "options": [
+        "They are computationally efficient and require fewer parameters than other methods.",
+        "They give unique values to each position while maintaining consistency in token representation.",
+        "They allow the model to ignore token order, focusing only on content relationships.",
+        "They reduce large variations in positional embeddings, providing smooth and stable representations."
+      ],
+      "correctAnswers": [
+        1
+      ]
+    },
+    {
+      "id": 10,
+      "question": "Highly imbalanced datasets, such as those used in Churn Prediction, Credit Card Fraud Detection, or Disease Detection, present unique challenges when building machine learning models. Suppose you are tasked with working on one of these datasets.\nWhat approach would you follow to build a model for such imbalanced data?\nWhich of the following statements are correct?",
+      "type": "multiple choice",
+      "options": [
+        "Use data augmentation to balance the dataset with help of techniques like SMOTE (Synthetic Minority Oversampling Technique)",
+        "Focus on metrics derived from the Confusion Matrix, such as precision, recall, F1-score, and area under the ROC curve (AUC), to evaluate the model's performance.",
+        "Use a simple train-test split, rely on accuracy as metric, and focus on Precision for evaluation.",
+        "Use a pre-trained model and interpret the Confusion Matrix as a representation of feature importance.",
+        "Apply techniques such as oversampling the minority class or undersampling the majority class",
+        "Try to make False Positive value higher and True Negative value lower"
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "id": 11,
+      "question": "What is a common technique used to reduce the variance and complexity of a decision tree respectively?",
+      "type": "multiple choice",
+      "options": [
+        "Pruning, Bagging",
+        "Bagging, Boosting",
+        "Bagging, Pruning",
+        "Pruning, Boosting"
+      ],
+      "correctAnswers": [
+        2
+      ]
+    },
+    {
+      "id": 12,
+      "question": "What is a key characteristic of decision trees and a potential disadvantage of using them for classification tasks?",
+      "type": "multiple choice",
+      "options": [
+        "Leaf nodes represent the class label or value to be predicted, but decision trees are prone to overfitting.",
+        "Leaf nodes store the conditions for splitting the data, and decision trees cannot model non-linear relationships.",
+        "Leaf nodes indicate the importance of a feature, and decision trees cannot handle categorical variables.",
+        "Leaf nodes represent the depth of the tree, and decision trees are computationally expensive."
+      ],
+      "correctAnswers": [
+        0
+      ]
+    },
+    {
+      "id": 13,
+      "question": "We generally use OpenCV library to read images for our Computer Vision Related Tasks. Tell in which format does this library by default read images.",
+      "type": "multiple choice",
+      "options": [
+        "RGB",
+        "BGR",
+        "GRB",
+        "RBG"
+      ],
+      "correctAnswers": [
+        1
+      ]
+    },
+    {
+      "id": 14,
+      "question": "What problems can occur if we don't initialize our model weights properly?",
+      "type": "multiple choice",
+      "options": [
+        "The model will converge to the optimal solution faster.",
+        "The model may fail to converge, or converge to a suboptimal solution, leading to poor performance.",
+        "Weight initialization doesn’t affect model’s final weight values, thus no performance issue would arise and training will complete normally.",
+        "The model's training will always result in perfect generalization without overfitting."
+      ],
+      "correctAnswers": [
+        1
+      ]
+    },
+    {
+      "id": 15,
+      "question": "When using an ensemble method like Random Forest for classification, how does the presence of class imbalance (where one class significantly out numbers the other typically influence the model’s behaviour and the subsequent decision-making process? Which of the following is the most plausible explanation?",
+      "type": "multiple choice",
+      "options": [
+        "The Random Forest classifier tends to ignore the underrepresented class entirely, resulting in an exceptionally high accuracy but low recall for the minority class.",
+        "The algorithm will give more weight to the majority class in the tree-building process, leading to biased predictions that favour the majority class and might cause performance issues unless balanced sampling techniques or adjusted class weights are used.",
+        "Random Forest automatically compensates for class imbalance by using stratified sampling within each individual tree, ensuring equal representation for both classes and thus no need for intervention or pre-processing.",
+        "The model will make predictions solely based on the majority class distribution, reducing the overall prediction variance and leading to more stable predictions but often missing the minority class patterns completely."
+      ],
+      "correctAnswers": [
+        1
+      ]
+    },
+    {
+      "id": 16,
+      "question": "Convolutional Neural Networks (CNNs) have revolutionized computer vision tasks by automatically learning hierarchical feature representations from raw images. Instead of manually crafting features, CNNs extract spatial patterns like edges, textures, and object shapes through multiple layers of convolutional operations. However, not all convolutional kernels contribute equally to feature extraction, and choosing the correct architecture significantly impacts model performance.\nGiven that deeper networks tend to capture more complex patterns but may also suffer from vanishing gradients and increased computational complexity, which of the following techniques help in improving feature extraction without significantly increasing the number of parameters?",
+      "type": "multiple choice",
+      "options": [
+        "Using 1x1 convolutions (as seen in architectures like GoogLeNet) to reduce dimensionality while maintaining depth-wise separability in convolutional operations.",
+        "Employing residual connections (as in ResNet) to allow identity mappings, making it easier to train very deep networks by avoiding gradient vanishing.",
+        "Utilizing max-pooling layers after each convolutional block to ensure that the most dominant features are preserved while reducing spatial dimensions.",
+        "Applying fully connected layers at the end of convolutional layers to enhance feature extraction by combining all spatial features into a single high-dimensional representation."
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 17,
+      "question": "Deep learning models, whether used for computer vision or NLP tasks, often suffer from overfitting, where the model memorizes the training data instead of generalizing to unseen samples. Overfitting is more likely to occur when the dataset is small, the model has too many trainable parameters, or training continues for too many epochs.\nTo mitigate overfitting, various regularization techniques are employed. These include Dropout (randomly deactivating neurons during training), L2 weight decay (penalizing large weights), Batch Normalization (reducing internal covariate shift), and Data Augmentation (creating synthetic variations of the training data).\nConsidering these regularization techniques, which of the following statements are true?",
+      "type": "multiple choice",
+      "options": [
+        "Dropout helps prevent overfitting by forcing neurons to learn more general features rather than memorizing specific training examples.",
+        "L2 regularization encourages sparse weight matrices, making the model more interpretable and less prone to overfitting.",
+        "Data Augmentation is used only in computer vision tasks and is not applicable to NLP models.",
+        "Batch Normalization can accelerate training by reducing the impact of internal covariate shift, but it does not directly act as a regularization technique like dropout."
+      ],
+      "correctAnswers": [
+        0,
+        3
+      ]
+    },
+    {
+      "id": 18,
+      "question": "You may have heard about Histogram which tells the frequency of pixel values in an image. Suppose you are given an image in which there is a pure white canvas of size 15*10, inside it there is a Red (255,0,0) Square of size 4*4 and a blue (0,0,255) ball of diameter 1.\nYou have to select the rough histogram for the following image. Assume that Y axis represents the Frequency (on a normalized scale) and X axis represents the Pixel Values (from 0 to 255).",
+      "type": "image",
+      "questionLink": "https://i.ibb.co/SX4v7nsW/Whats-App-Image-2025-02-08-at-16-40-35-1dfd3210.jpg",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswers": [
+        3
+      ]
+    },
+    {
+      "id": 19,
+      "question": "While creating a DT we generally measure Information Gain (IG) either using Gini Impurity or Entropy for the feature on which we want to split. Now suppose we have 3 features X, Y and Z and we have to decide on which feature we want to split. Given that Information Gain is maximum for split on feature X and least for feature Z. Tell on which feature will the split be made. Also tell what is the entropy for Leaf Node.",
+      "type": "multiple choice",
+      "options": [
+        "X, 1",
+        "Y, 0",
+        "Z, 1",
+        "Z, 0"
+      ],
+      "correctAnswers": [
+        0
+      ]
+    },
+    {
+      "id": 20,
+      "question": "You are working on an Audio Classification Problem, where you have pre-processed the audio data and converted it into a Mel Spectrogram (grayscale), which is represented as a matrix of size (m × n). To extract meaningful features, you apply D number of 1D CNN filters, each of size k (with padding = ‘valid’) and a stride of S = 1. But before moving on to 1D CNN, let’s first understand working of 2D CNN over RGB Images:\nA RGB Image is represented by (H, W, 3) and now if we apply F number of 2D filters, each of size (k × k × 3), with stride S. Then,\nIf padding = same, it means the output will have shape ([(H/S) + 1] x [(W/S) + 1] x F).\nWhile if padding = valid, it will be ([(H-k/S) + 1] x [(W-k/S) + 1] x F).\n( [x] This denotes the greatest integer lesser than or equal to x).\nNow suppose that while creating the model architecture you have only used 1 Layer of 1D CNN (with 64 filters each of size = 3) and 4 Max Pooling layers.\nTell the shape of output just after the 1D CNN layer and also tell how many non-trainable and trainable parameters are present in whole model architecture?",
+      "type": "multiple choice",
+      "options": [
+        "([n-k+1], 64), 4, 192n",
+        "([m-k+1], 64), 0, 64(3n+1)",
+        "([m-k+1], [n-k+1]), 4, 64(3m+1)",
+        "([n-k+1], [m-k+1]), 0, 192m"
+      ],
+      "correctAnswers": [
+        1
+      ]
+    },
+    {
+      "id": 21,
+      "question": "Generative Adversarial Networks (GANs) consist of two neural networks, a generator and a discriminator, which are trained in an adversarial setting. The generator learns to create realistic data samples, while the discriminator distinguishes between real and synthetic samples. This competition drives the generator to produce high-quality outputs over time.\nDuring training, the generator takes random noise as input and learns to transform it into meaningful images. The discriminator, on the other hand, evaluates whether the generated images resemble real training data. Both networks continuously refine their parameters based on the adversarial loss function, improving the realism of generated samples.\nHowever, after training for several epochs, you observe that:\nThe generated images appear blurry and lack fine details.\nThe generator fails to produce diverse outputs and often generates nearly identical images, despite variations in input noise.\nWhat are the most likely causes of these issues, and which strategies would be the best solutions to improve the output quality of the GAN?",
+      "type": "multiple choice",
+      "options": [
+        "The discriminator is likely too weak compared to the generator, meaning that the generator has learned to produce only a limited range of samples that are easily classified as fake. Strengthening the discriminator by adding more layers or neurons will force the generator to create more realistic and diverse images.",
+        "The discriminator is likely too strong, resulting in the generator being unable to fool it effectively, which can be mitigated by reducing the depth of the discriminator or adding noise to the input data to make the task more challenging for the discriminator.",
+        "The generator is overfitting to the training data. Increasing batch size and reducing epochs will force it to generate more diverse images.",
+        "Using Batch Normalization in both the generator and discriminator layers helps stabilize training and improve convergence. However, if used incorrectly (e.g., applying it to the last layer of the generator), it may cause artifacts in the generated images."
+      ],
+      "correctAnswers": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": 22,
+      "question": "The Transformer architecture, which uses self-attention mechanisms, has revolutionized many NLP tasks due to its ability to process sequences in parallel (as opposed to RNNs and LSTMs, which process sequences sequentially). Transformers work by calculating attention scores for each word in the input sequence, allowing them to capture relationships between words regardless of their distance in the sequence. This architecture is particularly effective for tasks like text classification, machine translation, and summarization.\nProblem:\nSuppose you have enough GPU resources such that you are able to use the open-source transformer-based model Meta Llama 2 (Large) locally on your PC either using Hugging Face or Ollama for text classification and you noticed that, despite sufficient fine-tuning on a labelled dataset, the model produces poor results on long, multi-topic documents. The model struggles to capture the relationships between topics and gives an inaccurate classification. What might be the reason for this issue?",
+      "type": "multiple choice",
+      "options": [
+        "The model has insufficient parameters and lacks the capacity to handle multi-topic documents, thus failing to identify the various topics in the input.",
+        "The transformer architecture is designed for tasks with a clear focus, and it cannot handle long, complex input with multiple topics, requiring a more specialized model.",
+        "The input sequence length exceeds the model’s maximum token limit (aka Context Length), leading to truncation and loss of important context from the document.",
+        "The model is not fine-tuned on enough multi-topic data. Although fine-tuning with a few long documents increased the model's effective context length, it still struggles to understand complex documents containing multiple subjects."
+      ],
+      "correctAnswers": [
+        1,
+        2
+      ]
+    }
+  ]
+  

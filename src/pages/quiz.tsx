@@ -17,7 +17,7 @@ const Quiz = () => {
 
     useEffect(() => {
         const fetchQuestions = async () => {
-            const res = await fetch("/api/questions");
+            const res = await fetch(`/api/${studentData?.securityCode}`);
             const data: Question[] = await res.json();
             setQuestions(data);
         };
