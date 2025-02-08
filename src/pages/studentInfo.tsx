@@ -25,7 +25,7 @@ const StudentInfo: React.FC = () => {
 
         };
 
-        if (securityCode !== 'ARIES-ML-2025') {
+        if (securityCode !== 'MLQuestions') {
             setError(true);
             return;
         }
@@ -47,6 +47,10 @@ const StudentInfo: React.FC = () => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        onCopy={(e) => e.preventDefault()}
+                                        onPaste={(e) => e.preventDefault()}
+                                        onCut={(e) => e.preventDefault()}
+                                        onContextMenu={(e) => e.preventDefault()}
                     />
                 </div>
                 <div className="mb-4">
@@ -56,6 +60,10 @@ const StudentInfo: React.FC = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        onCopy={(e) => e.preventDefault()}
+                                        onPaste={(e) => e.preventDefault()}
+                                        onCut={(e) => e.preventDefault()}
+                                        onContextMenu={(e) => e.preventDefault()}
                     />
                 </div>
                 <div className="mb-4">
@@ -65,6 +73,10 @@ const StudentInfo: React.FC = () => {
                         value={enrollmentId}
                         onChange={(e) => setEnrollmentId(e.target.value)}
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        onCopy={(e) => e.preventDefault()}
+                                        onPaste={(e) => e.preventDefault()}
+                                        onCut={(e) => e.preventDefault()}
+                                        onContextMenu={(e) => e.preventDefault()}
                     />
                 </div>
                 <div className="mb-4">
@@ -74,6 +86,10 @@ const StudentInfo: React.FC = () => {
                         value={mobileNumber}
                         onChange={(e) => setMobileNumber(e.target.value)}
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        onCopy={(e) => e.preventDefault()}
+                                        onPaste={(e) => e.preventDefault()}
+                                        onCut={(e) => e.preventDefault()}
+                                        onContextMenu={(e) => e.preventDefault()}
                     />
                 </div>
                 <div className="mb-4">
@@ -84,6 +100,10 @@ const StudentInfo: React.FC = () => {
                         onChange={(e) => setSecurityCode(e.target.value)}
                         className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${error ? 'border-red-500' : ''}`}
                         title={error ? 'Enter the correct security code' : ''}
+                        onCopy={(e) => e.preventDefault()}
+                                        onPaste={(e) => e.preventDefault()}
+                                        onCut={(e) => e.preventDefault()}
+                                        onContextMenu={(e) => e.preventDefault()}
                     />
                 </div>
                 <button 

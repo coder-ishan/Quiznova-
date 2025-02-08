@@ -5,8 +5,29 @@ import 'tailwindcss/tailwind.css';
 const Home = () => {
   const router = useRouter();
 
-  const startQuiz = () => {
-    router.push('/studentInfo');
+  const startQuiz = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+      if (stream) {
+        if (document.documentElement.requestFullscreen) {
+          await document.documentElement.requestFullscreen();
+        } else if ((document.documentElement as any).webkitRequestFullscreen) { /* Safari */
+          await (document.documentElement as any).webkitRequestFullscreen();
+        }
+        router.push('/studentInfo');
+
+        // Periodically check the stream to keep it active
+        setInterval(() => {
+          if (stream.getVideoTracks().length === 0) {
+            alert("Screen sharing has been stopped. Please restart the quiz.");
+            router.push('/');
+          }
+        }, 5000);
+      }
+    } catch (err) {
+      console.error("Error: " + err);
+      alert("Screen recording permission is required to start the quiz.");
+    }
   };
 
   return (
