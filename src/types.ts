@@ -3,6 +3,7 @@ export interface Question {
     question: string;
     options: string[];
     correctAnswers: number[];
+    correctAnswer: number;
     type:string;
     questionLink?:string;
   }
