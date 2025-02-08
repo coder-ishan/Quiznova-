@@ -86,20 +86,19 @@ const Quiz = () => {
     const handleSubmit = async () => {
         questions.forEach((question) => {
             const userAnswer = responses[question.id] || [];
-            if(question.type != "numerical"){
-             
+            if (question.type !== "numerical") {
                 if (
+                    question.correctAnswers &&
                     JSON.stringify(userAnswer.sort()) ===
                     JSON.stringify(question.correctAnswers.sort())
                 ) {
                     calculatedScore += 1;
                 }
-            }else{
+            } else {
                 if (userAnswer[0] === question.correctAnswer) {
                     calculatedScore += 1;
                 }
             }
-
         });
 
         setScore(calculatedScore);
@@ -122,7 +121,7 @@ const Quiz = () => {
           
             Question: question.question,
             UserAnswer: responses[question.id] || null,
-            CorrectAns: question.type != "numerical" ? question.correctAnswers.sort() : question.correctAnswer,
+            CorrectAns: question.type != "numerical" ? question.correctAnswers?.sort() : question.correctAnswer,
         }));
 
         const finalData = {
