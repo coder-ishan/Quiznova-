@@ -12,6 +12,9 @@ const Quiz = () => {
     const [score, setScore] = useState<number | null>(null);
     const [timeLeft, setTimeLeft] = useState<number>(1800);
     const [hasStarted, setHasStarted] = useState(false);
+    const [showWarning, setShowWarning] = useState(false);
+    const [warningTimeout, setWarningTimeout] = useState<NodeJS.Timeout | null>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const router = useRouter();
     let calculatedScore = 0;
 
@@ -32,12 +35,15 @@ const Quiz = () => {
                 e.key === "F12" ||
                 (e.ctrlKey && e.shiftKey && e.key === "I") ||
                 (e.ctrlKey && e.shiftKey && e.key === "J") ||
-                (e.ctrlKey && e.key === "U")
+                (e.ctrlKey && e.key === "U") ||
+                e.key === "Escape"
             ) {
                 e.preventDefault();
+                if (e.key === "Escape") {
+                    handleEscKeyPress();
+                }
             }
         };
-
         const handleTouchMove = (e: TouchEvent) => e.preventDefault();
 
         document.addEventListener("contextmenu", handleContextMenu);
@@ -51,13 +57,37 @@ const Quiz = () => {
         };
     }, []);
 
+    const handleEscKeyPress = () => {
+        setShowWarning(true);
+        const timeout = setTimeout(() => {
+            handleSubmit();
+        }, 5000);
+        setWarningTimeout(timeout);
+    };
+
+    const handleReturnToFullScreen = () => {
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen()
+                .then(() => {
+                    setShowWarning(false);
+                    if (warningTimeout) {
+                        clearTimeout(warningTimeout);
+                        setWarningTimeout(null);
+                    }
+                })
+                .catch(err => {
+                    console.error('Fullscreen error:', err);
+                });
+        }
+    };
+
     const startQuiz = () => {
         if (document.documentElement.requestFullscreen) {
             document.documentElement.requestFullscreen()
                 .then(() => setHasStarted(true))
                 .catch(err => {
                     console.error('Fullscreen error:', err);
-                    setHasStarted(false); // Continue anyway
+                    setHasStarted(false);
                 });
         } else {
             setHasStarted(true);
@@ -65,12 +95,17 @@ const Quiz = () => {
     };
 
     const handleOptionSelect = (questionId: number, optionIndex: number) => {
-        setResponses((prev) => ({
-            ...prev,
-            [questionId]: prev[questionId]
-                ? Array.from(new Set([...prev[questionId], optionIndex]))
-                : [optionIndex],
-        }));
+        setResponses((prev) => {
+            const currentResponses = prev[questionId] || [];
+            const updatedResponses = currentResponses.includes(optionIndex)
+                ? currentResponses.filter(index => index !== optionIndex)
+                : [...currentResponses, optionIndex];
+            
+            return {
+                ...prev,
+                [questionId]: updatedResponses
+            };
+        });
     };
 
     const handleInputChange = (questionId: number, value: string) => {
@@ -84,6 +119,9 @@ const Quiz = () => {
     };
 
     const handleSubmit = async () => {
+        if (isSubmitting) return;
+        setIsSubmitting(true);
+
         questions.forEach((question) => {
             const userAnswer = responses[question.id] || [];
             if (question.type !== "numerical") {
@@ -103,22 +141,26 @@ const Quiz = () => {
 
         setScore(calculatedScore);
 
-        await sendQuizData();
-        router.push("/thankyou");
-        setTimeout(() => {
-            if (document.fullscreenElement) {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else {
-                    console.error('Fullscreen exit not supported');
+        try {
+            await sendQuizData();
+            router.push("/thankyou");
+            setTimeout(() => {
+                if (document.fullscreenElement) {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else {
+                        console.error('Fullscreen exit not supported');
+                    }
                 }
-            }
-        }, 2000);
+            }, 2000);
+        } catch (error) {
+            console.error('Error submitting quiz:', error);
+            setIsSubmitting(false);
+        }
     };
 
     const sendQuizData = async () => {
         const QAndAnswers = questions.map(question => ({
-          
             Question: question.question,
             UserAnswer: responses[question.id] || null,
             CorrectAns: question.type != "numerical" ? question.correctAnswers?.sort() : question.correctAnswer,
@@ -174,6 +216,20 @@ const Quiz = () => {
 
     return (
         <div className="p-6 h-screen w-screen flex flex-col items-center justify-center bg-gray-100">
+            {showWarning && (
+                <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <h2 className="text-2xl font-bold mb-4">Warning</h2>
+                        <p className="mb-6">Return to full screen within 5 seconds or the test will be auto-submitted.</p>
+                        <button 
+                            onClick={handleReturnToFullScreen}
+                            className="py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg"
+                        >
+                            Return to Full Screen
+                        </button>
+                    </div>
+                </div>
+            )}
             <div className="flex flex-row items-center justify-center">
                 <h1 className="text-3xl font-bold text-center mb-6 mt-10">ArIES Recruitment Test</h1>
             </div>
@@ -201,6 +257,10 @@ const Quiz = () => {
                                         className="w-full p-2 border border-gray-300 rounded"
                                         onChange={(e) => handleInputChange(question.id, e.target.value)}
                                         value={responses[question.id]?.[0] || ""}
+                                        onCopy={(e) => e.preventDefault()}
+                                        onPaste={(e) => e.preventDefault()}
+                                        onCut={(e) => e.preventDefault()}
+                                        onContextMenu={(e) => e.preventDefault()}
                                     />
                                 </div>
                             ) : (
@@ -208,7 +268,7 @@ const Quiz = () => {
                             )}
                             
                             {question.options && question.options.map((option, index) => (
-                                <label key={index} className="block mb-2 cursor-pointer items-center" onClick={() => handleOptionSelect(question.id, index)}>
+                                <label key={index} className="block mb-2 cursor-pointer items-center">
                                     <input
                                         type="checkbox"
                                         className="mr-3 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
@@ -248,13 +308,13 @@ const Quiz = () => {
                 )}
 
                 <button
-                    className="mt-6 w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
-                    onClick={() => {
-                        handleSubmit();
-                       
-                    }}
+                    className={`mt-6 w-full py-3 ${
+                        isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
+                    } text-white font-semibold rounded-lg transition duration-300`}
+                    onClick={handleSubmit}
+                    disabled={isSubmitting}
                 >
-                    Submit
+                    {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>
             </div>
             <div className="w-full mt-3" style={{ position: 'relative', maxHeight: '90vh' }}>
