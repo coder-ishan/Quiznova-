@@ -3,9 +3,10 @@ export interface Question {
     question: string;
     options: string[];
     correctAnswers: number[];
+    type:string;
   }
   
   export interface Response {
-    [questionId: number]: number[];
+    [key: number]: (number | string)[];
   }
   
