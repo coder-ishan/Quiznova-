@@ -82,15 +82,16 @@ const Quiz = () => {
 
     const handleSubmit = async () => {
         questions.forEach((question) => {
-            if(question.type==="multiple choice"){
-            const userAnswer = responses[question.id] || [];
+        const userAnswer = responses[question.id] || [];
+        if (question.type !== "numerical") {
             if (
                 JSON.stringify(userAnswer.sort()) ===
-                JSON.stringify(question.correctAnswers.sort()) 
+                JSON.stringify(question.correctAnswers.sort())
             ) {
                 calculatedScore += 1;
             }
-    }});
+        }
+    });
 
         setScore(calculatedScore);
 
@@ -111,7 +112,7 @@ const Quiz = () => {
         const QAndAnswers = questions.map(question => ({
             Question: question.question,
             UserAnswer: responses[question.id] || null,
-            CorrectAns: question.type === "multiple choice" ? question.correctAnswers.sort() : null,
+            CorrectAns: question.type != "numerical" ? question.correctAnswers.sort() : null,
         }));
 
         const finalData = {
@@ -178,27 +179,36 @@ const Quiz = () => {
                 ) : (
                     questions.map((question) => (
                         <div key={question.id} className="my-4 box-content">
-                            <h3 className="font-medium mb-2">{question.id}. {question.question}</h3>
-                            {question.type === "multiple choice" ? (
-                                question.options.map((option, index) => (
-                                    <label key={index} className="block mb-2 cursor-pointer items-center" onClick={() => handleOptionSelect(question.id, index)}>
-                                        <input
-                                            type="checkbox"
-                                            className="mr-3 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                                            onChange={() => handleOptionSelect(question.id, index)}
-                                            checked={responses[question.id]?.includes(index) || false}
-                                        />
-                                        <span className="text-gray-700">{option}</span>
-                                    </label>
-                                ))
+                            {question.type === "image" ? (
+                                <div>
+                                    <h3 className="font-medium mb-2">{question.id}. {question.question}</h3>
+                                    <img src={question.questionLink} alt="Question" className="mb-4" />
+                                </div>
+                            ) : question.type === "numerical" ? (
+                                <div>
+                                    <h3 className="font-medium mb-2">{question.id}. {question.question}</h3>
+                                    <input
+                                        type="text"
+                                        className="w-full p-2 border border-gray-300 rounded"
+                                        onChange={(e) => handleInputChange(question.id, e.target.value)}
+                                        value={responses[question.id]?.[0] || ""}
+                                    />
+                                </div>
                             ) : (
-                                <input
-                                    type="text"
-                                    className="w-full p-2 border border-gray-300 rounded"
-                                    onChange={(e) => handleInputChange(question.id, e.target.value)}
-                                    value={responses[question.id]?.[0] || ""}
-                                />
+                                <h3 className="font-medium mb-2">{question.id}. {question.question}</h3>
                             )}
+                            
+                            {question.options && question.options.map((option, index) => (
+                                <label key={index} className="block mb-2 cursor-pointer items-center" onClick={() => handleOptionSelect(question.id, index)}>
+                                    <input
+                                        type="checkbox"
+                                        className="mr-3 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                                        onChange={() => handleOptionSelect(question.id, index)}
+                                        checked={responses[question.id]?.includes(index) || false}
+                                    />
+                                    <span className="text-gray-700">{option}</span>
+                                </label>
+                            ))}
                             <button
                                 className="mt-2 mb-10 py-1 px-2 bg-red-500 text-white font-medium rounded hover:bg-red-600 transition duration-300 text-sm"
                                 onClick={() => setResponses((prev) => {
@@ -227,12 +237,15 @@ const Quiz = () => {
                         </div>
                     ))
                 )}
+
                 <button
                     className="mt-6 w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
                     onClick={() => {
                         handleSubmit();
                         router.push("/thankyou");
                     }}
+                    
+                    
                 >
                     Submit
                 </button>
@@ -243,8 +256,8 @@ const Quiz = () => {
                         <div
                             key={question.id}
                             className={`flex items-center justify-center min-w-[40px] min-h-[40px] rounded-lg border-2 text-cyan-50 ${
-                                responses[question.id] ? (reviews[question.id] ? 'bg-yellow-300' : 'bg-green-600')
-                                : (reviews[question.id] ? 'bg-purple-600' : 'bg-gray-600')
+                                  responses[question.id] ? ( reviews[question.id] ?'bg-yellow-300':'bg-green-600')
+                                   : (reviews[question.id] ?'bg-purple-600':'bg-gray-600')
                             }`}
                         >
                             {question.id}
@@ -252,8 +265,7 @@ const Quiz = () => {
                     ))}
                 </div>
             </div>
-           </div>
-        
+        </div>
     );
 };
 

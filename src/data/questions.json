@@ -198,7 +198,7 @@
     "id": 26,
     "question": "Identify the object in the image.",
     "type": "image",
-    "imageLink": "https://example.com/image.jpg",
+    "questionLink": "https://i.ibb.co/270kbNBH/manja-vitolic-g-KXKBY-C-Dk-unsplash.jpg" ,
     "options": ["Cat", "Dog", "Bird", "Fish"],
     "correctAnswers": [0]
 }
