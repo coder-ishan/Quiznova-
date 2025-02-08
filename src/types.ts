@@ -4,6 +4,7 @@ export interface Question {
     options: string[];
     correctAnswers: number[];
     type:string;
+    questionLink?:string;
   }
   
   export interface Response {
