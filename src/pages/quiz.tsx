@@ -131,7 +131,7 @@ const Quiz = () => {
         };
 
         try {
-            const response = await fetch('https://aries-test-f33a3-default-rtdb.firebaseio.com/userdataAndResponses.json', {
+            const response = await fetch('https://aries-test-f33a3-default-rtdb.firebaseio.com/ARIESMLResponses.json', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
