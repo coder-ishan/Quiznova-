@@ -379,7 +379,7 @@ const Quiz = () => {
                         <div
                             key={question.id}
                             className={`flex items-center justify-center min-w-[40px] min-h-[40px] rounded-lg border-2 text-cyan-50 ${
-                                  responses[question.id] ? ( reviews[question.id] ?'bg-yellow-300':'bg-green-600')
+                                  responses[question.id]?.length ? ( reviews[question.id] ?'bg-yellow-300':'bg-green-600')
                                    : (reviews[question.id] ?'bg-purple-600':'bg-gray-600')
                             } cursor-pointer`}
                             onClick={() => {
