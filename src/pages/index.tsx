@@ -14,7 +14,7 @@ const Home = () => {
         } else if ((document.documentElement as any).webkitRequestFullscreen) { /* Safari */
           await (document.documentElement as any).webkitRequestFullscreen();
         }
-        router.push('/studentInfo');
+        router.push('/thankyou');
 
         // Periodically check the stream to keep it active
         setInterval(() => {
