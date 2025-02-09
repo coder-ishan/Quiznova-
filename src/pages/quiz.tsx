@@ -15,6 +15,7 @@ const Quiz = () => {
     const [showWarning, setShowWarning] = useState(false);
     const [warningTimeout, setWarningTimeout] = useState<NodeJS.Timeout | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [countdown, setCountdown] = useState<number>(10);
     const router = useRouter();
     let calculatedScore = 0;
 
@@ -57,12 +58,35 @@ const Quiz = () => {
         };
     }, []);
 
+    useEffect(() => {
+        const handleFullscreenChange = () => {
+            if (!document.fullscreenElement) {
+                handleEscKeyPress();
+            }
+        };
+
+        document.addEventListener("fullscreenchange", handleFullscreenChange);
+
+        return () => {
+            document.removeEventListener("fullscreenchange", handleFullscreenChange);
+        };
+    }, []);
+    
     const handleEscKeyPress = () => {
         setShowWarning(true);
-        const timeout = setTimeout(() => {
-            handleSubmit();
-        }, 5000);
-        setWarningTimeout(timeout);
+        setCountdown(10);
+        const interval = setInterval(() => {
+            setCountdown((prevCountdown) => {
+                if (prevCountdown > 0) {
+                    return prevCountdown - 1;
+                } else {
+                    clearInterval(interval);
+                    handleSubmit();
+                    return 0;
+                }
+            });
+        }, 1000);
+        setWarningTimeout(interval);
     };
 
     const handleReturnToFullScreen = () => {
@@ -220,7 +244,7 @@ const Quiz = () => {
                 <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                     <div className="bg-white p-6 rounded-lg shadow-lg text-center">
                         <h2 className="text-2xl font-bold mb-4">Warning</h2>
-                        <p className="mb-6">Return to full screen within 5 seconds or the test will be auto-submitted.</p>
+                        <p className="mb-6">Return to full screen within {countdown} seconds or the test will be auto-submitted.</p>
                         <button 
                             onClick={handleReturnToFullScreen}
                             className="py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg"
