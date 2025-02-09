@@ -194,6 +194,7 @@ const Quiz = () => {
             student: studentData,
             QsnAndAnswers: QAndAnswers,
             FinalScore: calculatedScore,
+            SubmissionTime: new Date().toLocaleString(),
         };
 
         try {
