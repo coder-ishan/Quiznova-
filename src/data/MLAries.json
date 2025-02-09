@@ -58,6 +58,70 @@
     },
     {
       "id": 5,
+      "question": "Why were sine and cosine functions chosen for positional encoding over simple incremental values to represent token positions in a sequence in the \"Attention is All You Need\" research paper?",
+      "type": "multiple choice",
+      "options": [
+        "They are computationally efficient and require fewer parameters than other methods.",
+        "They give unique values to each position while maintaining consistency in token representation.",
+        "They allow the model to ignore token order, focusing only on content relationships.",
+        "They reduce large variations in positional embeddings, providing smooth and stable representations."
+      ],
+      "correctAnswers": [
+        1
+      ]
+    },
+    {
+      "id": 6,
+      "question": "What is a common technique used to reduce the variance and complexity of a decision tree respectively?",
+      "type": "multiple choice",
+      "options": [
+        "Pruning, Bagging",
+        "Bagging, Boosting",
+        "Bagging, Pruning",
+        "Pruning, Boosting"
+      ],
+      "correctAnswers": [
+        2
+      ]
+    },
+    {
+      "id": 7,
+      "question": "We generally use OpenCV library to read images for our Computer Vision Related Tasks. Tell in which format does this library by default read images.",
+      "type": "multiple choice",
+      "options": [
+        "RGB",
+        "BGR",
+        "GRB",
+        "RBG"
+      ],
+      "correctAnswers": [
+        1
+      ]
+    },
+    {
+      "id": 8,
+      "question": "What problems can occur if we don't initialize our model weights properly?",
+      "type": "multiple choice",
+      "options": [
+        "The model will converge to the optimal solution faster.",
+        "The model may fail to converge, or converge to a suboptimal solution, leading to poor performance.",
+        "Weight initialization doesn’t affect model’s final weight values, thus no performance issue would arise and training will complete normally.",
+        "The model's training will always result in perfect generalization without overfitting."
+      ],
+      "correctAnswers": [
+        1
+      ]
+    },
+    {
+      "id": 9,
+      "question": "An egg break only if dropped from above a threshold floor, within a 100-story building. Every time you drop an egg, it is counted as an attempt. You are given 2 eggs to deduce the threshold floor, tell the minimum number of attempts in the worst case!",
+      "type": "numerical",
+      
+      "correctAnswer": 14
+    },
+ 
+    {
+      "id": 10,
       "question": "Where and why is Principal Component Analysis (PCA) typically used?",
       "type": "multiple choice",
       "options": [
@@ -71,13 +135,13 @@
       ]
     },
     {
-      "id": 6,
+      "id": 11,
       "question": "It is observed that 50% of emails are spam. A spam detection software has an accuracy of 99% for detecting spam, and it incorrectly tags 5% of non-spam emails as spam. If an email is tagged as spam, let the probability that it is not actually a spam emailbe x, then what is x*10000 ?",
       "type": "numerical",
       "correctAnswer": 481
     },
     {
-      "id": 7,
+      "id": 12,
       "question": "Which of the following is True?",
       "type": "multiple choice",
       "options": [
@@ -92,61 +156,11 @@
         3
       ]
     },
+    
+    
+   
     {
-      "id": 8,
-      "question": "An egg break only if dropped from above a threshold floor, within a 100-story building. Every time you drop an egg, it is counted as an attempt. You are given 2 eggs to deduce the threshold floor, tell the minimum number of attempts in the worst case!",
-      "type": "numerical",
-      
-      "correctAnswer": 14
-    },
-    {
-      "id": 9,
-      "question": "Why were sine and cosine functions chosen for positional encoding over simple incremental values to represent token positions in a sequence in the \"Attention is All You Need\" research paper?",
-      "type": "multiple choice",
-      "options": [
-        "They are computationally efficient and require fewer parameters than other methods.",
-        "They give unique values to each position while maintaining consistency in token representation.",
-        "They allow the model to ignore token order, focusing only on content relationships.",
-        "They reduce large variations in positional embeddings, providing smooth and stable representations."
-      ],
-      "correctAnswers": [
-        1
-      ]
-    },
-    {
-      "id": 10,
-      "question": "Highly imbalanced datasets, such as those used in Churn Prediction, Credit Card Fraud Detection, or Disease Detection, present unique challenges when building machine learning models. Suppose you are tasked with working on one of these datasets.\nWhat approach would you follow to build a model for such imbalanced data?\nWhich of the following statements are correct?",
-      "type": "multiple choice",
-      "options": [
-        "Use data augmentation to balance the dataset with help of techniques like SMOTE (Synthetic Minority Oversampling Technique)",
-        "Focus on metrics derived from the Confusion Matrix, such as precision, recall, F1-score, and area under the ROC curve (AUC), to evaluate the model's performance.",
-        "Use a simple train-test split, rely on accuracy as metric, and focus on Precision for evaluation.",
-        "Use a pre-trained model and interpret the Confusion Matrix as a representation of feature importance.",
-        "Apply techniques such as oversampling the minority class or undersampling the majority class",
-        "Try to make False Positive value higher and True Negative value lower"
-      ],
-      "correctAnswers": [
-        0,
-        1,
-        4
-      ]
-    },
-    {
-      "id": 11,
-      "question": "What is a common technique used to reduce the variance and complexity of a decision tree respectively?",
-      "type": "multiple choice",
-      "options": [
-        "Pruning, Bagging",
-        "Bagging, Boosting",
-        "Bagging, Pruning",
-        "Pruning, Boosting"
-      ],
-      "correctAnswers": [
-        2
-      ]
-    },
-    {
-      "id": 12,
+      "id": 13,
       "question": "What is a key characteristic of decision trees and a potential disadvantage of using them for classification tasks?",
       "type": "multiple choice",
       "options": [
@@ -159,36 +173,10 @@
         0
       ]
     },
-    {
-      "id": 13,
-      "question": "We generally use OpenCV library to read images for our Computer Vision Related Tasks. Tell in which format does this library by default read images.",
-      "type": "multiple choice",
-      "options": [
-        "RGB",
-        "BGR",
-        "GRB",
-        "RBG"
-      ],
-      "correctAnswers": [
-        1
-      ]
-    },
+    
+    
     {
       "id": 14,
-      "question": "What problems can occur if we don't initialize our model weights properly?",
-      "type": "multiple choice",
-      "options": [
-        "The model will converge to the optimal solution faster.",
-        "The model may fail to converge, or converge to a suboptimal solution, leading to poor performance.",
-        "Weight initialization doesn’t affect model’s final weight values, thus no performance issue would arise and training will complete normally.",
-        "The model's training will always result in perfect generalization without overfitting."
-      ],
-      "correctAnswers": [
-        1
-      ]
-    },
-    {
-      "id": 15,
       "question": "When using an ensemble method like Random Forest for classification, how does the presence of class imbalance (where one class significantly out numbers the other typically influence the model’s behaviour and the subsequent decision-making process? Which of the following is the most plausible explanation?",
       "type": "multiple choice",
       "options": [
@@ -201,8 +189,39 @@
         1
       ]
     },
+    
+    {
+      "id": 15,
+      "question": "You may have heard about Histogram which tells the frequency of pixel values in an image. Suppose you are given an image in which there is a pure white canvas of size 15*10, inside it there is a Red (255,0,0) Square of size 4*4 and a blue (0,0,255) ball of diameter 1.\nYou have to select the rough histogram for the following image. Assume that Y axis represents the Frequency (on a normalized scale) and X axis represents the Pixel Values (from 0 to 255).",
+      "type": "image",
+      "questionLink": "https://i.ibb.co/SX4v7nsW/Whats-App-Image-2025-02-08-at-16-40-35-1dfd3210.jpg",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswers": [
+        3
+      ]
+    },
     {
       "id": 16,
+      "question": "While creating a DT we generally measure Information Gain (IG) either using Gini Impurity or Entropy for the feature on which we want to split. Now suppose we have 3 features X, Y and Z and we have to decide on which feature we want to split. Given that Information Gain is maximum for split on feature X and least for feature Z. Tell on which feature will the split be made. Also tell what is the entropy for Leaf Node.",
+      "type": "multiple choice",
+      "options": [
+        "X, 1",
+        "Y, 0",
+        "Z, 1",
+        "Z, 0"
+      ],
+      "correctAnswers": [
+        0
+      ]
+    },
+    
+    {
+      "id": 17,
       "question": "Convolutional Neural Networks (CNNs) have revolutionized computer vision tasks by automatically learning hierarchical feature representations from raw images. Instead of manually crafting features, CNNs extract spatial patterns like edges, textures, and object shapes through multiple layers of convolutional operations. However, not all convolutional kernels contribute equally to feature extraction, and choosing the correct architecture significantly impacts model performance.\nGiven that deeper networks tend to capture more complex patterns but may also suffer from vanishing gradients and increased computational complexity, which of the following techniques help in improving feature extraction without significantly increasing the number of parameters?",
       "type": "multiple choice",
       "options": [
@@ -218,7 +237,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": 18,
       "question": "Deep learning models, whether used for computer vision or NLP tasks, often suffer from overfitting, where the model memorizes the training data instead of generalizing to unseen samples. Overfitting is more likely to occur when the dataset is small, the model has too many trainable parameters, or training continues for too many epochs.\nTo mitigate overfitting, various regularization techniques are employed. These include Dropout (randomly deactivating neurons during training), L2 weight decay (penalizing large weights), Batch Normalization (reducing internal covariate shift), and Data Augmentation (creating synthetic variations of the training data).\nConsidering these regularization techniques, which of the following statements are true?",
       "type": "multiple choice",
       "options": [
@@ -233,32 +252,21 @@
       ]
     },
     {
-      "id": 18,
-      "question": "You may have heard about Histogram which tells the frequency of pixel values in an image. Suppose you are given an image in which there is a pure white canvas of size 15*10, inside it there is a Red (255,0,0) Square of size 4*4 and a blue (0,0,255) ball of diameter 1.\nYou have to select the rough histogram for the following image. Assume that Y axis represents the Frequency (on a normalized scale) and X axis represents the Pixel Values (from 0 to 255).",
-      "type": "image",
-      "questionLink": "https://i.ibb.co/SX4v7nsW/Whats-App-Image-2025-02-08-at-16-40-35-1dfd3210.jpg",
-      "options": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
-      "correctAnswers": [
-        3
-      ]
-    },
-    {
       "id": 19,
-      "question": "While creating a DT we generally measure Information Gain (IG) either using Gini Impurity or Entropy for the feature on which we want to split. Now suppose we have 3 features X, Y and Z and we have to decide on which feature we want to split. Given that Information Gain is maximum for split on feature X and least for feature Z. Tell on which feature will the split be made. Also tell what is the entropy for Leaf Node.",
+      "question": "Highly imbalanced datasets, such as those used in Churn Prediction, Credit Card Fraud Detection, or Disease Detection, present unique challenges when building machine learning models. Suppose you are tasked with working on one of these datasets.\nWhat approach would you follow to build a model for such imbalanced data?\nWhich of the following statements are correct?",
       "type": "multiple choice",
       "options": [
-        "X, 1",
-        "Y, 0",
-        "Z, 1",
-        "Z, 0"
+        "Use data augmentation to balance the dataset with help of techniques like SMOTE (Synthetic Minority Oversampling Technique)",
+        "Focus on metrics derived from the Confusion Matrix, such as precision, recall, F1-score, and area under the ROC curve (AUC), to evaluate the model's performance.",
+        "Use a simple train-test split, rely on accuracy as metric, and focus on Precision for evaluation.",
+        "Use a pre-trained model and interpret the Confusion Matrix as a representation of feature importance.",
+        "Apply techniques such as oversampling the minority class or undersampling the majority class",
+        "Try to make False Positive value higher and True Negative value lower"
       ],
       "correctAnswers": [
-        0
+        0,
+        1,
+        4
       ]
     },
     {
