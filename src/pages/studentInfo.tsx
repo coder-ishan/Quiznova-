@@ -25,7 +25,7 @@ const StudentInfo: React.FC = () => {
 
         };
 
-        if (securityCode !== 'MLAries' && securityCode !== 'MechatronicsAries' && securityCode !== 'DevXRAries'&&securityCode!=="AptitudeAries") {
+        if (securityCode !="sasaasasas") {
             setError(true);
             return;
         }
