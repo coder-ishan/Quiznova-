@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Question } from "../../types";
-import questions from "../../data/Dev-XR-Questions.json" assert { type: "json" };
+import questions from "../../data/AptitudeAries.json" assert { type: "json" };
 
 
 export default function handler(

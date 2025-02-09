@@ -1,0 +1,213 @@
+[
+  {
+    "id": 1,
+    "question": "An Electronic Speed Controller (ESC) is a critical component in drone systems. Which of the following scenarios would occur if an ESC malfunctioned during flight?",
+    "type": "multiple choice",
+    "options": [
+      "The drone would lose GPS functionality and crash immediately.",
+      "The battery would overheat due to unregulated power delivery.",
+      "The motors would stop responding to throttle inputs, leading to loss of control.",
+      "The drone's camera would fail to stabilize its orientation."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "id": 2,
+    "question": "In ArIES, SolidWorks is used for designing drone frames. Which of the following design challenges would most likely require the use of SolidWorks' Finite Element Analysis (FEA) feature?",
+    "type": "multiple choice",
+    "options": [
+      "Ensuring the frame can withstand stress during high-speed maneuvers.",
+      "Optimizing the aerodynamic shape of the drone frame.",
+      "Simulating the motion of rotors during flight.",
+      "Creating a 3D rendering of the drone for marketing purposes."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "id": 3,
+    "question": "During a drone race, a pilot uses an RC transmitter to execute complex maneuvers. What happens if the transmitter signal is lost mid-flight?",
+    "type": "multiple choice",
+    "options": [
+      "The drone will continue flying in the last commanded direction.",
+      "The drone will enter a failsafe mode, such as returning to home or landing.",
+      "The drone's GPS will take over and stabilize its position.",
+      "The drone's camera will automatically record the incident."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "id": 4,
+    "question": "What is the primary function of the yaw moment in a quadcopter?",
+    "type": "multiple choice",
+    "options": [
+      "To control the drone's altitude",
+      "To control the drone's rotation",
+      "To manage the drone's battery",
+      "To control the drone's GPS"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "id": 5,
+    "question": "In ROS, what is a \"node\"?",
+    "type": "multiple choice",
+    "options": [
+      "A physical sensor",
+      "An executable program performing part of the robot's code",
+      "A type of battery",
+      "A 3D model"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "id": 6,
+    "question": "Which equation represents the forward kinematics of a 2R planar manipulator?",
+    "type": "multiple choice",
+    "options": [
+      "x=l1sin⁡θ1+l2sin⁡θ2​",
+      "x=l1cos⁡θ1+l2cos⁡(θ1+θ2)",
+      "x=l12+l22",
+      "x=θ1+θ2"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "id": 7,
+    "question": "How does increasing the blade pitch of a drone's propeller affect its performance?",
+    "type": "multiple choice",
+    "options": [
+      "It increases thrust efficiency but may reduce battery life due to higher torque requirements.",
+      "It decreases thrust efficiency because steeper pitches create more drag.",
+      "It has no impact on thrust efficiency but improves stability.",
+      "It reduces motor heat by distributing load evenly across the blades."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "id": 8,
+    "question": "Imagine you are building a robotic arm using ROS and URDF. You need to define how the base of the arm connects to the first segment and how each subsequent segment connects to the next. Which of the following statements is true about URDF's role in this process?",
+    "type": "multiple choice",
+    "options": [
+      "URDF uses \"nodes\" and \"topics\" to define the physical connections between segments.",
+      "URDF specifies \"links\" and \"joints\" to represent rigid bodies and their articulations.",
+      "URDF relies on sensor data to dynamically adjust the connections during operation.",
+      "URDF focuses on defining coordinate frames but ignores physical connections."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "id": 9,
+    "question": "A warehouse automation company is deciding between using differential drive robots and omnidirectional robots for transporting goods. Which limitation of differential drive robots would make them less suitable for navigating tight spaces with frequent lateral movements?",
+    "type": "multiple choice",
+    "options": [
+      "Their inability to move laterally without turning.",
+      "Their high energy consumption during sharp turns.",
+      "Their slow speed compared to omnidirectional robots.",
+      "Their limited sensor range, which hinders obstacle detection."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Which ROS concept uses FM radio as an analogy?",
+    "type": "multiple choice",
+    "options": [
+      "Nodes",
+      "Topics",
+      "Services",
+      "Launch files"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "id": 11,
+    "question": "A robotics team is designing a differential drive robot for outdoor terrain navigation. They are debating whether to include castor wheels. What advantage do castor wheels provide in this scenario, and why is it critical for outdoor use?",
+    "type": "multiple choice",
+    "options": [
+      "Castor wheels reduce skidding during sharp turns by allowing smoother directional changes, which is vital for maintaining trajectory on loose surfaces like gravel.",
+      "Castor wheels minimize ground contact points to avoid debris interference, improving reliability in muddy or rocky environments.",
+      "Castor wheels dynamically redistribute the robot’s weight to lower the motor strain on drive wheels, extending battery life during long missions.",
+      "Castor wheels absorb high-frequency vibrations from uneven terrain, stabilizing onboard sensors like LiDAR for accurate mapping."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "id": 12,
+    "question": "A quadcopter is flying forward at a constant speed. Which of the following statements are true? (Select all that apply)",
+    "type": "multiple choice",
+    "options": [
+      "The rear rotors are spinning faster than the front rotors.",
+      "The drone's pitch angle is tilted forward.",
+      "The thrust vector has both vertical and horizontal components.",
+      "The drone's yaw angle remains unchanged during forward motion."
+    ],
+    "correctAnswers": [
+      0,
+      1,
+      2
+    ]
+  },
+  {
+    "id": 13,
+    "question": "In ROS, which of the following statements about \"tf2\" are correct? (Select all that apply)",
+    "type": "multiple choice",
+    "options": [
+      "It is used to track the transformation between coordinate frames.",
+      "It can handle multiple robots in the same environment.",
+      "It requires manual calculation of transformation matrices.",
+      "It is primarily used for rendering 3D models in Rviz."
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ]
+  },
+  
+  {
+    "id": 14,
+    "question": "A robotic arm has two links of lengths L1​=2m and L2​=1.5m. The end effector is required to reach a target point at coordinates (x,y)=(3,2)m. Determine the joint angle θ2​ required to achieve this position rounded down to nearest integer....",
+    "type": "numerical",
+    "correctAnswer": 51
+  },
+  {
+    "id": 15,
+    "question": "A heavy-duty hexacopter drone is flying forward at a constant speed of v=12m/s. The drone has the following specifications:\nTotal thrust produced by all six motors at 100% throttle: Tmax​=300N\nWeight of the drone (without payload): Wdrone​=150N\nDrag force acting on the drone due to air resistance: Fdrag​=0.4⋅v2 (where v is in m/s)\nAcceleration due to gravity: g=9.8m/s2\nThe drone operates at 90% throttle while moving forward. Calculate the maximum payload weight in kilograms (m payload​) that the drone can carry under these conditions and round it up to the nearest integer.",
+    "type": "numerical-image",
+    "questionLink": "https://i.ibb.co/fdMSy8z1/Screenshot-2025-02-08-at-7-23-48-PM.png",
+    "correctAnswer": 12
+  },
+  {
+    "id": 16,
+    "question": "A quadcopter drone is flying forward at a constant speed of  v = 15  m/s. The drone experiences a drag force given by:\nFdrag = 0.3 v^2\nwhere  v  is in m/s. Additionally, the drone must overcome a small incline, where a component of its weight contributes to the resistive force. The drone has a mass of 5 kg and is flying at a 5° upward incline. Assume gravity  g = 9.81  m/s². \nThe drone’s motors operate at an efficiency of 85%. Calculate the minimum power output ( Pmin ) in W required from the motors to maintain this speed, rounded to the nearest integer.",
+    "type": "numerical",
+    "correctAnswer": 1267
+  },
+  {
+    "id": 17,
+    "question": "Quaternions are used to represent orientation to prevent gimbal lock scenarios. Given the quaternion q = 0.7071+0i + 0j + 0.7071k, where w=0.7071 and z=0.7071, calculate the corresponding Euler angle in degrees.",
+    "type": "numerical",
+    "correctAnswer": 90
+  }
+]

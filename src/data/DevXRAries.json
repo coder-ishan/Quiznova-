@@ -1,0 +1,284 @@
+[
+  {
+    "id": 1,
+    "question": "In game development and AR/VR, which of the following can be considered an asset?",
+    "type": "multiple choice",
+    "options": [
+      "AI Algorithms",
+      "3D Models",
+      "Animations",
+      "Network Connection",
+      "2D Sprites",
+      "Audio Files"
+    ],
+    "correctAnswers": [
+      1,
+      2,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 2,
+    "question": "What does HMD stand for in the context of XR technology?",
+    "type": "multiple choice",
+    "options": [
+      "Head-Mounted Device",
+      "Head-Mounted Display",
+      "Hybrid Motion Detector",
+      "Handheld Mobile Device"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "id": 3,
+    "question": "In the AR Foundation, what is the primary role of Feature Points?",
+    "type": "multiple choice",
+    "options": [
+      "Detecting visually distinct elements in the environment to track movement and place planes",
+      "Enhancing the graphical quality of AR objects by improving lighting and shadows",
+      "Identifying objects in the scene using AI-based object recognition",
+      "Improving AR app performance by reducing the processing power needed for rendering"
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "id": 4,
+    "question": "What is the primary function of Cloud Anchors in AR technology?",
+    "type": "multiple choice",
+    "options": [
+      "Storing 3D models in the cloud to improve AR rendering quality across multiple devices",
+      "Synchronizing AR applications with GPS data to provide location-based AR interactions",
+      "Enhancing AR tracking by using AI to recognize objects and improve depth perception",
+      "Allowing users to share AR experiences across different devices and platforms using cloud-supported anchors"
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "id": 5,
+    "question": "What is the primary purpose of Culling in AR/VR or game development?",
+    "type": "multiple choice",
+    "options": [
+      "Reducing the complexity of 3D models to improve rendering performance",
+      "Generating textures for objects that are out of view to enhance graphics",
+      "Hiding objects that are not visible to the camera to optimize performance",
+      "Using AI to predict the movement of visible objects for better collision detection"
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "id": 6,
+    "question": "A game developer is working on a game in Unity. While testing the game in the Unity editor by clicking the \"Play\" button, he noticed that the position of some objects was incorrect. He immediately corrected the positions and then clicked the play button again to exit play mode . However, when he tested the scene again, he found that nothing had changed. What is the most likely cause of this?",
+    "type": "multiple choice",
+    "options": [
+      "The changes were not saved before entering Play mode.",
+      "Changes made during Play mode are reverted after exiting Play mode.",
+      "Unity doesn't allow positional changes during Play mode.",
+      "The Play mode didn't execute the script responsible for updating object positions."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "id": 7,
+    "question": "Which of the following techniques are used in culling to optimize rendering performance in AR/VR or game development?",
+    "type": "multiple choice",
+    "options": [
+      "Frustum Culling",
+      "Texture Culling",
+      "Occlusion Culling",
+      "Backface Culling"
+    ],
+    "correctAnswers": [
+      0,
+      1,
+      3
+    ]
+  },
+  {
+    "id": 8,
+    "question": "Which of the following statements not correctly describe design patterns used in Unity C# for managing game states, communication, and input handling?",
+    "type": "multiple choice",
+    "options": [
+      "Observer Pattern directly connects objects to each other, requiring them to be tightly coupled to communicate changes.",
+      "State Design Pattern helps manage different game states, such as standing, walking, or jumping, by switching between state classes based on conditions.",
+      "MVP Pattern separates the Model, View, and Presenter where the Presenter handles user input, and the View directly manipulates the game data.",
+      "Factory Pattern separates object creation logic from usage, simplifying code by using a factory to create other objects."
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "id": 9,
+    "question": "Which of the following statements are true regarding the concept of Ray Casting and its use in early game engines and gameplay mechanics?",
+    "type": "multiple choice",
+    "options": [
+      "Ray Casting is primarily used in 3D map rendering but does not work for 2D grids.",
+      "The DDA algorithm is used to detect collisions when a ray hits a wall in the 2D map, based on the lengths of horizontal and vertical directions it travels.",
+      "Ray Casting is a technique that helps create a 3D perspective in a 2D map using square grids and white blocks as walls.",
+      "The DDA algorithm compares the lengths of horizontal and vertical paths to calculate the ray's position in 3D space."
+    ],
+    "correctAnswers": [
+      1,
+      2
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Which of the following technologies does the Oculus Quest incorporate?",
+    "type": "multiple choice",
+    "options": [
+      "AR(Augmented Reality)",
+      "MR(Mixed Reality)",
+      "VR(VirtuaL Reality)",
+      "XR(Extended Reality)"
+    ],
+    "correctAnswers": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "id": 11,
+    "question": "Why is the [SerializeField] attribute used in the CharacterController script for the moveSpeed, jumpHeight, and maxLives variables?(Use the code snippet provided for Questions 11 to 17",
+    "type": "image",
+    "questionLink": "https://i.ibb.co/jPT1R4fM/Screenshot-2025-02-08-at-7-30-37-PM.png",
+    "options": [
+      "To make these variables private and not visible in the Unity Inspector.",
+      "To allow these private variables to be visible and editable in the Unity Inspector.",
+      "To prevent any changes to these variables in the Unity Inspector.",
+      "To allow other scripts to directly access and modify these variables."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "id": 12,
+    "question": "What does the MoveCharacter function do?",
+    "type": "multiple choice",
+    "options": [
+      "It checks if the player is grounded and applies a horizontal force based on the input.",
+      "It moves the character horizontally based on the player's input",
+      "It makes the character jump by applying an upward force when the spacebar is pressed.",
+      "It moves the character horizontally using the abc variable."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "id": 13,
+    "question": "What does the JumpCharacter function do?",
+    "type": "multiple choice",
+    "options": [
+      "It stops the character from moving.",
+      "It moves the character horizontally based on the player's input.",
+      "It makes the character jump by applying an upward force when the spacebar is pressed.",
+      "It rotates the character."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "id": 14,
+    "question": "What is the purpose of a Tag in Unity?",
+    "type": "multiple choice",
+    "options": [
+      "It is used to change the color of an object.",
+      "It is used to assign a unique identifier to an object that can be accessed via scripts.",
+      "It is used to modify the object's physics behavior.",
+      "It is used to categorize objects, allowing them to be identified and interacted with more easily in scripts."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "id": 15,
+    "question": "What is the functionality of Time.deltaTime in Unity?",
+    "type": "multiple choice",
+    "options": [
+      "It represents the time in seconds it took to complete the last frame.",
+      "It sets the frame rate of the game.",
+      "It controls the speed of animations.",
+      "It determines the distance between objects in the scene."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "id": 16,
+    "question": "What is the difference between the line →1 and →2  of code?",
+    "type": "multiple choice",
+    "options": [
+      "Line 1 adjusts the movement speed based on Time.deltaTime to account for frame rate differences, while Line 2 moves the character at a fixed speed.",
+      "Line 1 uses Time.deltaTime to make the character move faster, while Line 2 makes it move slower.",
+      "Line 1 multiplies by Time.deltaTime, which makes the movement frame rate dependent, while Line 2 ignores frame rate and moves the character at a constant speed of 5 units per second.",
+      "Both lines of code behave the same; Time.deltaTime and the constant 5f are equivalent in terms of movement."
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "id": 17,
+    "question": "In the given code, what happens when isGrounded is set to false?",
+    "type": "multiple choice",
+    "options": [
+      "The character's horizontal movement will be disabled.",
+      "The character will fall through the ground.",
+      "The character will be able to jump freely even if it's in the air.",
+      "The character will be unable to jump until it touches the ground again."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "id": 18,
+    "question": "Which of the following statements about JavaScript promises are true?",
+    "type": "multiple choice",
+    "options": [
+      "A promise can be in one of three states: pending, fulfilled, or rejected.",
+      "The .then() method is used to handle resolved promises.",
+      "A promise can be resolved and rejected at the same time.",
+      "The .catch() method is used to handle rejected promises."
+    ],
+    "correctAnswers": [
+      0,
+      1,
+      3
+    ]
+  },
+  {
+    "id": 19,
+    "question": "ARIES is organizing a late-night coding showdown. As the clock ticks past midnight, two participants, Vineet and Abhudaya, face the final challenge:\n\nlet P = Math.floor(7.8) + parseInt(\"4.9\") * 2; \nlet Q = (10 / \"2\") + (3 ** 2) + \"5\";  \nVineet, eager to secure victory, you must now calculate the value of console.log(P+Q) to help him....",
+    "type": "numerical",
+    "correctAnswer": 15145
+  },
+  {
+    "id": 20,
+    "question": "The ARIES Game Jam was reaching its peak, and the final challenge had the developers racing against time. Sushim,Karan and Pratham, three talented developers from the ARIES, had to solve the ultimate pancake sorting puzzle. The pancakes were enchanted, and the goal was to sort them using the minimum number of flips. A flip consists of reversing the order of the top k pancakes for any k ≤ n, where n is the total number of pancakes.\nThe twist? They had to solve it with the minimum number of flips.\nThe Challenge:\nSushim,Karan and Pratham quickly reviewed the rules:\nFlips reverse the order of the top k pancakes, where 1 ≤ k ≤ n.\nTheir goal was to sort the stack in the fewest flips possible.\nThe problem required an optimal strategy to minimize the number of flips, taking into account the unique constraints of the problem.\nWhat are the minimum number of flips that were required to sort the stack of pancakes ?",
+    "type": "numerical-image",
+    "questionLink": "https://i.ibb.co/S70ZL4Vn/Screenshot-2025-02-08-at-7-30-56-PM.png",
+  
+    "correctAnswers":7
+  }
+]

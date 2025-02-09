@@ -1,0 +1,428 @@
+[
+    {
+        "id":1,
+        "question": "Which number represents the question Mark ?",
+        "type": "image",
+        "questionLink": "https://i.ibb.co/SjBgXnm/Screenshot-2025-02-09-141250.png",
+        "options": [
+          "6",
+          "9",
+          "12",
+          "15"
+        ],
+        "correctAnswers": [
+          0
+        ]
+        
+    },
+    {
+        "id": 2,
+        "question": "3 pumps, working 8 hours a day, can empty a tank in 2 days. How many hours a day must 4 pumps work to empty the tank in 1 day?",
+        "type": "multiple choice",
+        "options": [
+            "9",
+            "10",
+            "11",
+            "12"
+        ],
+        "correctAnswers": [
+            3
+        ]
+    },
+    {
+        "id": 3,
+        "question": "You have 1,000 bottles of wine, one of which is poisoned. If a person drinks from a poisoned bottle, they will die. What is the minimum number of people required to determine which bottle is poisoned?",
+        "type": "multiple choice",
+        "options": [
+            "100",
+            "10",
+            "50",
+            "1000"
+        ],
+        "correctAnswers": [
+            1
+        ]
+    },
+    {
+        "id": 4,
+        "question": "You are given a square piece of paper with a length of 4 units. You draw a plus sign (+) in the center of the square, dividing it into 4 smaller, equal-sized squares. Then, you take one of these smaller squares and repeat the same process by drawing a plus sign in the center of the square, dividing it into 4 equal parts again.\n\nThe question is: What is the total length of the plus signs drawn during the entire process?\n\nEach new plus sign divides the square into smaller squares, and this process continues indefinitely. Calculate the total length of all the plus signs drawn in the entire process.",
+        "type": "multiple choice",
+        "options": [
+            "4",
+            "16",
+            "64",
+            "128"
+        ],
+        "correctAnswers": [
+            1
+        ]
+    },
+    {
+        "id": 5,
+        "question": "You are given 100 bags, each containing an infinite number of coins. One of the bags contains fake coins, where each fake coin weighs 1.1 grams, while the genuine coins weigh 1 gram. You have access to a weighing scale and can place a specific number of coins from each bag onto the scale. Your task is to identify which bag contains the fake coins using the minimum number of weighings. Each time you use the scale, it counts as one operation. What are the fewest number of weighings required to pinpoint the bag with the fake coins?",
+        "type": "multiple choice",
+        "options": [
+            "1",
+            "10",
+            "50",
+            "100"
+        ],
+        "correctAnswers": [
+            0
+        ]
+    },
+    {
+        "id": 6,
+        "question": "There are two numbers p and q (p > q). You are given a number N = p * q and m = (p^q + q^p) % N. Find the value of 3 * p + 2 * q.\n\nN = 221, m = 30",
+        "type": "multiple choice",
+        "options": [
+            "55",
+            "13",
+            "77",
+            "65"
+        ],
+        "correctAnswers": [
+            2
+        ]
+    },
+    {
+        "id": 7,
+        "question": "Two numbers are in the ratio of 15:11. If the HCF of the numbers is 13, find the numbers.",
+        "type": "multiple choice",
+        "options": [
+            "75, 55",
+            "105, 77",
+            "15, 11",
+            "195, 143"
+        ],
+        "correctAnswers": [
+            3
+        ]
+    },
+    {
+        "id": 8,
+        "question": "There is an integer number N such that (N * (N + 1)) / 2 = 561. What is the value of the sum of the digits of N?",
+        "type": "multiple choice",
+        "options": [
+            "8",
+            "6",
+            "12",
+            "18"
+        ],
+        "correctAnswers": [
+            1
+        ]
+    },
+    {
+        "id": 9,
+        "question": "Six bells commence tolling together and toll at intervals of 2, 4, 6, 8, 10, and 12 seconds respectively. In 30 minutes, how many times do they toll together?",
+        "type": "multiple choice",
+        "options": [
+            "13",
+            "16",
+            "14",
+            "15"
+        ],
+        "correctAnswers": [
+            1
+        ]
+    },
+    {
+        "id": 10,
+        "question": "In a family of six members, P is the father of Q, Q is the sister of R, R is the mother of S, and S is the brother of T. How is T related to P?",
+        "type": "multiple choice",
+        "options": [
+            "Daughter",
+            "Granddaughter",
+            "Son",
+            "Grandson"
+        ],
+        "correctAnswers": [
+            3
+        ]
+    },
+    {
+        "id": 11,
+        "question": "At what time between 3 PM and 4 PM will the angle between the minute and hour hands be nine degrees, with the minute hand being ahead of the hour hand?",
+        "type": "multiple choice",
+        "options": [
+            "3 h 15 m 45 s",
+            "3 h 16 m",
+            "3 h 16 m 30 s",
+            "3 h 18 m"
+        ],
+        "correctAnswers": [
+            3
+        ]
+    },
+    {
+        "id": 12,
+        "question": "The digits/numbers from 1 to 12 on the clock dial are replaced by the letters of the English alphabet. The replacement starts with the letter ‘C’ but vowels and the immediate next consonants of vowels are not included in the replacement. The classes in the school start at N : T and last till a time when the minute hand is at K and the hour hand is between S and T, very slightly ahead of S. Five periods of equal duration are held during this interval. A break of 7 minutes is given to students after the 1st period, and the duration of the break increases by 2 minutes after each period. The exact duration of a period in minutes is:",
+        "type": "multiple choice",
+        "options": [
+            "32",
+            "33",
+            "34",
+            "35"
+        ],
+        "correctAnswers": [
+            1
+        ]
+    },
+    {
+        "id": 13,
+        "question": "Bhupen’s birthday is on the 13th of June and Mainu’s birthday is on the 23rd of April. If in a particular year, Mainu’s birthday was on Monday, what will be the day on Bhupen’s birthday in the same year?",
+        "type": "multiple choice",
+        "options": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+        ],
+        "correctAnswers": [
+            1
+        ]
+    },
+    {
+        "id": 14,
+        "question": "In an examination, students are graded with four grades namely A, B, C, and D. 72 students of the school secured an A grade. The ratio of students who secured A grade to students with D grade is 2:5. Out of the total students, 30% secured B grade and 40% secured C grade. What is the total number of students in the school?",
+        "type": "multiple choice",
+        "options": [
+            "840",
+            "600",
+            "420",
+            "360"
+        ],
+        "correctAnswers": [
+            0
+        ]
+    },
+    {
+        "id": 15,
+        "question": "In a class of 60 students, where girls and boys are in the ratio 2:3, the boy ‘Kartik’ is ranked 17th from the top. If there are 9 girls ahead of Kartik, what is the ratio of the number of girls and boys after the rank position of Kartik?",
+        "type": "multiple choice",
+        "options": [
+            "9 : 27",
+            "15 : 28",
+            "16 : 27",
+            "16 : 28"
+        ],
+        "correctAnswers": [
+            1
+        ]
+    },
+    {
+        "id":16,
+        "question": "Identify the box that can be formed from the sheet of paper given below: ",
+        "type": "image",
+        "questionLink": "https://i.ibb.co/G4697BqW/Screenshot-2025-02-09-at-1-48-57-PM.png",
+        "options": [
+          "Only I",
+          "Only II and III",
+          "Only III",
+          "Only IV"
+        ],
+        "correctAnswers": [
+          0
+        ]
+        
+    },
+    {
+        "id": 17,
+        "question": "You are given a 100-floor building and two identical eggs. Your task is to determine the highest floor (k) from which an egg can be dropped without breaking. When an egg is dropped from a floor k or higher, it will break. If dropped from a floor below k, it will not break. Your goal is to find the value of k using the minimum number of egg drops in the worst-case scenario.\n\nConstraints & Rules:\n- If an egg breaks, you cannot reuse it.\n- If an egg does not break, you can reuse it.\n- You can drop an egg from any floor of your choice.\n- The total number of drops (operations) should be minimized in the worst case.\n\nWhat is the minimum number of drops required to find k optimally?",
+        "type": "multiple choice",
+        "options": [
+            "10",
+            "14",
+            "30",
+            "50"
+        ],
+        "correctAnswers": [
+            1
+        ]
+    },
+    {
+        "id": 18,
+        "question": "On a staircase, Yaima is further up than Aloka but is lower than Srinivas. Ranjan is in the middle. Jeet is between Yaima and Ranjan. Aloka is between Ranjan and Danial. There is none below Barisha. Who is in the fifth position?",
+        "type": "multiple choice",
+        "options": [
+            "Aloka",
+            "Danial",
+            "Jeet",
+            "Yaima"
+        ],
+        "correctAnswers": [
+            2
+        ]
+    },
+    {
+        "id":19,
+        "question": "Identify the box that can be formed from the sheet of paper given below: ",
+        "type": "image",
+        "questionLink": "https://i.ibb.co/ksg2539Z/Screenshot-2025-02-09-at-1-46-40-PM.png",
+        "options": [
+          "Only I",
+          "Only II and III",
+          "Only III",
+          "Only IV"
+        ],
+        "correctAnswers": [
+          0
+        ]
+        
+    },
+    {
+        "id": 20,
+        "question": "Satisfy the following information and answer the given questions:\n\nI. B and E are good at Fine Arts and Social Sciences.\nII. A and B are good at Social Sciences and Chemistry.\nIII. A, D, and C are good at Chemistry and Biology.\nIV. C and A are good at Chemistry and Physics.\nV. D and E are good at Biology and Fine Arts.\n\nWho is good in Chemistry, Biology, and Physics but not in Social Sciences?",
+        "type": "multiple choice",
+        "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+        ],
+        "correctAnswers": [
+            2
+        ]
+    },
+    {
+        "id": 21,
+        "question": "Who is good in Social Sciences, Biology, and Fine Arts?",
+        "type": "multiple choice",
+        "options": [
+            "A",
+            "B",
+            "D",
+            "E"
+        ],
+        "correctAnswers": [
+            3
+        ]
+    },
+    {
+        "id": 22,
+        "question": "Who is good in Chemistry, Fine Arts, and Social Sciences?",
+        "type": "multiple choice",
+        "options": [
+            "A",
+            "B",
+            "D",
+            "E"
+        ],
+        "correctAnswers": [
+            1
+        ]
+    },
+    {
+        "id": 23,
+        "question": "Find the missing number in the sequence: 3, 18, 219, ____, 100005",
+        "type": "multiple choice",
+        "options": [
+            "1743",
+            "1746",
+            "4096",
+            "4100"
+        ],
+        "correctAnswers": [
+            3
+        ]
+    },
+    {
+        "id": 24,
+        "question": "A solid cube of 4 cm side, painted on all its faces, is cut up into small cubes of 1 cm side. What is the ratio of the cubes without paint to the cubes with paint on exactly two faces?",
+        "type": "multiple choice",
+        "options": [
+            "1 : 2",
+            "1 : 3",
+            "2 : 3",
+            "3 : 2"
+        ],
+        "correctAnswers": [
+            1
+        ]
+    },
+    {
+        "id": 25,
+        "question": "A man walks 20m towards South, then after turning to his left, he walks 22m. Then he turns 90° in an anti-clockwise direction and walks 26m. Then again he turns to the left and walks up to 30m. How far (in metres) is the man from his initial position?",
+        "type": "multiple choice",
+        "options": [
+            "16",
+            "14",
+            "10",
+            "9"
+        ],
+        "correctAnswers": [
+            2
+        ]
+    },
+    {
+        "id": 26,
+        "question": "Eleven students a, b, c, d, e, f, g, h, i, j and k are sitting in a row of class facing the teacher:\n\ni. ‘d’ who is to the immediate left of ‘f’, is second to the right of ‘c’.\n\nii. ‘h’ who is to the immediate left of ‘d’, is third to the right of ‘i’.\n\niii. ‘a’ is second to the right of ‘e’ and ‘e’ is at the end.\n\niv. ‘j’ is the immediate neighbour of ‘a’ and ‘b’ and third to the left of ‘g’.\n\nThe groups of friends who are sitting to the right of ‘g’ is",
+        "type": "multiple choice",
+        "options": [
+            "i, b, j, a",
+            "i, c, d, f",
+            "c, h, d, f",
+            "c, h, d, e"
+        ],
+        "correctAnswers": [
+            2
+        ]
+    },
+    {
+        "id": 27,
+        "question": "What is the missing number in the sequence: 3, 3, 4.5, 9, 22.5, __?",
+        "type": "multiple choice",
+        "options": [
+            "27.3",
+            "48",
+            "55",
+            "67.5"
+        ],
+        "correctAnswers": [
+            3
+        ]
+    },
+    {
+        "id": 28,
+        "question": "There are 99 bulbs in a room, all initially OFF. You toggle the state of bulbs in the following manner:\n\nOn the i^th pass, you toggle every bulb whose position is a multiple of i.\n\nThis continues for all i from 1 to 99.\n\nAt the end, how many bulbs remain ON?",
+        "type": "multiple choice",
+        "options": [
+            "10",
+            "15",
+            "9",
+            "25"
+        ],
+        "correctAnswers": [
+            2
+        ]
+    },
+    {
+        "id": 29,
+        "question": "Statements: In a one day cricket match, the total runs made by a team were 200. Out of these 160 runs were made by spinners.\n\nConclusions:\n\n1. 80% of the team consists of spinners.\n2. The opening batsmen were spinners.",
+        "type": "multiple choice",
+        "options": [
+            "Only conclusion I follows",
+            "Only conclusion II follows",
+            "Either I or II follows",
+            "Neither I nor II follows"
+        ],
+        "correctAnswers": [
+            3
+        ]
+    },
+    {
+        "id": 30,
+        "question": "Find the missing number in the sequence: 2, 12, 36, 80, __?",
+        "type": "multiple choice",
+        "options": [
+            "120",
+            "125",
+            "150",
+            "145"
+        ],
+        "correctAnswers": [
+            2
+        ]
+    } 
+]
