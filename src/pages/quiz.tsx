@@ -15,6 +15,7 @@ const Quiz = () => {
     const [showWarning, setShowWarning] = useState(false);
     const [warningTimeout, setWarningTimeout] = useState<NodeJS.Timeout | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [countdown, setCountdown] = useState(10);
     const router = useRouter();
     let calculatedScore = 0;
 
@@ -57,12 +58,35 @@ const Quiz = () => {
         };
     }, []);
 
+    useEffect(() => {
+        const handleFullscreenChange = () => {
+            if (!document.fullscreenElement) {
+                handleEscKeyPress();
+            }
+        };
+
+        document.addEventListener("fullscreenchange", handleFullscreenChange);
+
+        return () => {
+            document.removeEventListener("fullscreenchange", handleFullscreenChange);
+        };
+    }, []);
+    
     const handleEscKeyPress = () => {
         setShowWarning(true);
-        const timeout = setTimeout(() => {
-            handleSubmit();
-        }, 5000);
-        setWarningTimeout(timeout);
+        const interval = setInterval(() => {
+            setCountdown((prevCountdown) => {
+                if (prevCountdown > 0) {
+                    console.log(prevCountdown); // You can replace this with any UI update logic
+                    return prevCountdown - 1;
+                } else {
+                    clearInterval(interval);
+                    handleSubmit();
+                    return prevCountdown;
+                }
+            });
+        }, 1000);
+        setWarningTimeout(interval);
     };
 
     const handleReturnToFullScreen = () => {
@@ -124,7 +148,7 @@ const Quiz = () => {
 
         questions.forEach((question) => {
             const userAnswer = responses[question.id] || [];
-            if (question.type !== "numerical") {
+            if (question.type !== "numerical"&&question.type !== "numerical-image") {
                 if (
                     question.correctAnswers &&
                     JSON.stringify(userAnswer.sort()) ===
@@ -163,7 +187,7 @@ const Quiz = () => {
         const QAndAnswers = questions.map(question => ({
             Question: question.question,
             UserAnswer: responses[question.id] || null,
-            CorrectAns: question.type != "numerical" ? question.correctAnswers?.sort() : question.correctAnswer,
+            CorrectAns: question.type != "numerical"&& question.type!="numerical-image" ? question.correctAnswers?.sort() : question.correctAnswer,
         }));
 
         const finalData = {
@@ -173,7 +197,7 @@ const Quiz = () => {
         };
 
         try {
-            const response = await fetch('https://aries-test-f33a3-default-rtdb.firebaseio.com/ARIESMLResponses.json', {
+            const response = await fetch(`https://aries-test-f33a3-default-rtdb.firebaseio.com/${studentData?.securityCode}.json`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -201,12 +225,21 @@ const Quiz = () => {
 
     if (!hasStarted) {
         return (
-            <div className="flex flex-col items-center justify-center h-screen p-6">
-                <h2 className="text-2xl mb-4">Quiz Instructions</h2>
-                <p className="mb-6">Please read the instructions before starting the quiz.</p>
+            <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+                <h4 className="text-3xl font-bold mb-6 text-gray-800">Quiz Instructions</h4>
+                <ul className="space-y-4 text-gray-700 text-left max-w-lg list-disc list-inside">
+                    <li>It is recommended to use Google Chrome for the Test</li>
+                    <li>Your Screen is being recorded during the test</li>
+                    <li>Do not refresh the page or exit the fullscreen during the test</li>
+                    <li>Each Question is of 1 mark, with no negative marking</li>
+                    <li>You have 30 minutes to complete the test, it will be auto submitted after that</li>
+                    <li>Vertical wise questions may have more than 1 correct answer</li>
+                    <li>For numerical questions, only integer values are accepted</li>
+                </ul>
+                <h1 className="font-semibold mt-4">All the best</h1>
                 <button 
                     onClick={startQuiz}
-                    className="py-3 px-6 bg-blue-600 text-white font-semibold rounded-lg"
+                    className="mt-8 py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                 >
                     Start Quiz
                 </button>
@@ -220,7 +253,7 @@ const Quiz = () => {
                 <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                     <div className="bg-white p-6 rounded-lg shadow-lg text-center">
                         <h2 className="text-2xl font-bold mb-4">Warning</h2>
-                        <p className="mb-6">Return to full screen within 5 seconds or the test will be auto-submitted.</p>
+                        <p className="mb-6">Return to full screen within {countdown} seconds or the test will be auto-submitted.</p>
                         <button 
                             onClick={handleReturnToFullScreen}
                             className="py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg"
@@ -252,6 +285,21 @@ const Quiz = () => {
                             ) : question.type === "numerical" ? (
                                 <div>
                                     <h3 className="font-medium mb-2">{question.id}. {question.question}</h3>
+                                    <input
+                                        type="text"
+                                        className="w-full p-2 border border-gray-300 rounded"
+                                        onChange={(e) => handleInputChange(question.id, e.target.value)}
+                                        value={responses[question.id]?.[0] || ""}
+                                        onCopy={(e) => e.preventDefault()}
+                                        onPaste={(e) => e.preventDefault()}
+                                        onCut={(e) => e.preventDefault()}
+                                        onContextMenu={(e) => e.preventDefault()}
+                                    />
+                                </div>
+                            ) : question.type === "numerical-image" ? (
+                                <div>
+                                    <h3 className="font-medium mb-2">{question.id}. {question.question}</h3>
+                                    <img src={question.questionLink} alt="Question" className="mb-4" />
                                     <input
                                         type="text"
                                         className="w-full p-2 border border-gray-300 rounded"
