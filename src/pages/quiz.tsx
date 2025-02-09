@@ -27,7 +27,7 @@ const Quiz = () => {
         };
 
         fetchQuestions();
-    }, []);
+    }, [studentData]);
 
     useEffect(() => {
         const handleContextMenu = (e: MouseEvent) => e.preventDefault();
@@ -264,6 +264,13 @@ const Quiz = () => {
                     </div>
                 </div>
             )}
+            <div className="fixed top-4 right-4 bg-white p-4 rounded-lg shadow-lg">
+                <h3 className="text-lg font-bold mb-2">Student Info</h3>
+                <p><strong>Name:</strong> {studentData?.name}</p>
+                <p><strong>Enroll No:</strong> {studentData?.enrollmentId}</p>
+                <p><strong>Email:</strong> {studentData?.email}</p>
+                <p><strong>Phone:</strong> {studentData?.mobileNumber}</p>
+            </div>
             <div className="flex flex-row items-center justify-center">
                 <h1 className="text-3xl font-bold text-center mb-6 mt-10">ArIES Recruitment Test</h1>
             </div>
